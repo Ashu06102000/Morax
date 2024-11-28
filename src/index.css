@@ -140,6 +140,11 @@ body {
   }
 }
 
+.about-image {
+  clip-path: polygon(20% 0%, 82% 12%, 100% 85%, 0% 100%);
+  box-shadow: 0 0 0 5px #000;
+}
+
 .indicator-line {
   @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
 }
