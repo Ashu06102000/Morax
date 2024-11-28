@@ -40,14 +40,12 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <p className="mb-10 font-general text-[10px] uppercase">
-            Join Zentry
-          </p>
+          <p className="mb-10 font-general text-[10px] uppercase">Join Morax</p>
 
           <AnimatedTitle
             title="let&#39;s b<b>u</b>ild the <br /> new era of <br /> g<b>a</b>ming t<b>o</b>gether."
             //@ts-ignore
-            className="special-font !md:text-[6.2rem] w-full font-zentry !text-5xl !font-black !leading-[.9]"
+            className="special-font !md:text-[6.2rem] w-full font- !text-5xl !font-black !leading-[.9]"
           />
 
           <Button title="contact us" containerClass="mt-10 cursor-pointer" />
