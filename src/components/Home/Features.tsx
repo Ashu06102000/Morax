@@ -58,11 +58,11 @@ export const BentoCard = ({
 }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
-  const hoverButtonRef = useRef(null);
+  const hoverButtonRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (event: any) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!hoverButtonRef.current) return;
-    //@ts-ignore
+
     const rect = hoverButtonRef.current.getBoundingClientRect();
 
     setCursorPosition({
