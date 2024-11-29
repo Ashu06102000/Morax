@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Features from "./components/Features";
-import FloatingImage from "./components/Story";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Hero from "./components/Home/Hero";
+import About from "./components/Home/About";
+import Features from "./components/Home/Features";
+import FloatingImage from "./components/Home/Story";
+import Contact from "./components/genericComponents/Contact";
+import Footer from "./components/genericComponents/Footer";
 
 const App: React.FC = () => {
   return (
