@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Valorant",
+    "description": "This is a great product!",
+    "price": 10,
+    "image": "path/to/product-a.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Product B",
+    "description": "Another amazing product!",
+    "price": 20,
+    "image": "path/to/product-b.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Product C",
+    "description": "Best seller product!",
+    "price": 15,
+    "image": "path/to/product-c.jpg"
+  }
+]
