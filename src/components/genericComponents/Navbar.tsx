@@ -5,22 +5,29 @@ import { TiLocationArrow } from "react-icons/ti";
 import { Button } from "./Button";
 import { useAuth0 } from "@auth0/auth0-react";
 import AuthButton from "../auth/Authbutton";
+import gsap from "gsap";
+import { useAudioStore } from "../../store/store";
 const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  const [btnAudio, setBtnAudio] = useState(false);
 
   const audioElementRef = useRef<HTMLAudioElement>({} as HTMLAudioElement);
   const navContainerRef = useRef(null);
-
+  const btnRef = useRef(null);
+  const navItemRef = useRef(null);
   const { isLoading, user, isAuthenticated } = useAuth0();
+
+  const { audio, setAudio }: any = useAudioStore();
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
+    setAudio(!audio);
   };
-
+  console.log(audio, "audio");
   useEffect(() => {
     if (isAudioPlaying) {
       audioElementRef.current.play();
@@ -29,7 +36,38 @@ const NavBar = () => {
     }
   }, [isAudioPlaying]);
 
-  console.log(user, "user");
+  useEffect(() => {
+    gsap.set(btnRef.current, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    });
+  }, []);
+  const onMouseEnter = () => {
+    gsap.to(btnRef.current, {
+      clipPath: "polygon(20% 0%, 82% 12%, 100% 85%, 0% 100%)",
+    });
+  };
+  const onMouseLeave = () => {
+    gsap.to(btnRef.current, {
+      ease: "power2.out",
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    });
+  };
+  const onHoverAudio = () => {
+    if (navItemRef && audio) {
+      const audio = new Audio("/audio/navItem.mp3");
+      audio.play().catch((error) => {
+        console.error("Audio play error:", error);
+      });
+    }
+  };
+  const onClickedAudio = () => {
+    if (navItemRef && audio) {
+      const audio = new Audio("/audio/btnClicked.mp3");
+      audio.play().catch((error) => {
+        console.error("Audio play error:", error);
+      });
+    }
+  };
   return (
     <div
       ref={navContainerRef}
@@ -51,7 +89,12 @@ const NavBar = () => {
               id="product-button"
               title="Products"
               rightIcon={<TiLocationArrow />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1 "
+              onMouseEnter={onMouseEnter}
+              btnRef={btnRef}
+              onMouseLeave={onMouseLeave}
+              btnAudio={true}
+              link="/products"
             />
           </div>
 
@@ -62,6 +105,9 @@ const NavBar = () => {
                   key={index}
                   href={`#${item.toLowerCase()}`}
                   className="nav-hover-btn"
+                  onClick={onClickedAudio}
+                  onMouseEnter={onHoverAudio}
+                  ref={navItemRef}
                 >
                   {item}
                 </a>
@@ -71,6 +117,7 @@ const NavBar = () => {
             <button
               onClick={toggleAudioIndicator}
               className="ml-10 flex items-center space-x-0.5"
+              id="audio-button-main"
             >
               <audio
                 ref={audioElementRef}

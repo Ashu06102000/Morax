@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html {
+  scroll-behavior: smooth;
+}
 @layer base {
   @font-face {
     font-family: "circular-web";
@@ -272,4 +274,8 @@ body {
     transform: translateY(66%) scale(0.65);
     opacity: 0.8;
   }
+}
+
+#product-page {
+  background-image: radial-gradient(circle at 65%, #100731 20%, #080315 60%);
 }

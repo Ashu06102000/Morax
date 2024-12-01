@@ -6,6 +6,12 @@ const useUserStore = create((set) => ({
   user: null,
   setUser: (user: any) => set({ user }),
 }));
+const useAudioStore = create((set) => ({
+  audio: false,
+  setAudio: (audio: boolean) => set({ audio }),
+}));
+
+export { useUserStore, useAudioStore };
 
 export const useAuthStoreSync = () => {
   const { user, isAuthenticated } = useAuth0();

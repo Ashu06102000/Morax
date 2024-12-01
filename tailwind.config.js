@@ -26,6 +26,9 @@ module.exports = {
           300: "#edff66",
         },
       },
+      perspective: {
+        1000: "1000px",
+      },
     },
   },
   plugins: [],

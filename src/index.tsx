@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter } from "react-router-dom";
 
 const domain = "dev-xpksoawon3fqz5s3.us.auth0.com";
 const clientId = "bDhs3jDTC9NKjpn9u7otBkJQIFErUcSr";
@@ -20,7 +21,9 @@ root.render(
       }}
       cacheLocation="localstorage"
     >
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>
 );
