@@ -43,7 +43,7 @@ export default function ScrollableCarousel() {
   };
 
   return (
-    <div className="flex h-screen ">
+    <div className="flex h-screen paroduct_carousel_calc_height">
       <div
         ref={textListRef}
         className="w-full h-full overflow-scroll flex flex-col items-start pt-64 pb-96 z-10"
