@@ -38,10 +38,27 @@ export default function ScrollableCarousel() {
         duration: 1,
         ease: "power3.inOut",
         rotate: "-10deg",
+        scrub: 0.2,
       });
     }
   };
+  useEffect(() => {
+    const container = textListRef.current;
 
+    if (container) {
+      const scrollHandler = (e: WheelEvent) => {
+        e.preventDefault();
+        const scrollSpeed = 0.3;
+        container.scrollTop += e.deltaY * scrollSpeed;
+      };
+
+      container.addEventListener("wheel", scrollHandler, { passive: false });
+
+      return () => {
+        container.removeEventListener("wheel", scrollHandler);
+      };
+    }
+  }, []);
   return (
     <div className="flex h-screen paroduct_carousel_calc_height">
       <div
@@ -69,7 +86,7 @@ export default function ScrollableCarousel() {
           className="relative w-[30rem] h-96 gap-20 flex items-center justify-center"
           style={{
             transformStyle: "preserve-3d",
-            transform: "rotateY(0deg)",
+            transform: "rotate(-10deg)",
             transformOrigin: "center",
           }}
         >
