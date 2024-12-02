@@ -6,12 +6,14 @@ import HomeLayout from "./components/Home/HomeLayout";
 import { Route, Routes } from "react-router-dom";
 
 import PrductsPage from "./components/products/PrductsPage";
+import ProtectedPage from "./components/auth/ProtectedPage";
 
 const App: React.FC = () => {
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
       <Routes>
+        <Route path="/protected" element={<ProtectedPage />} />;
         <Route path="/" element={<HomeLayout />} />
         <Route path="/products" element={<PrductsPage />} />
       </Routes>

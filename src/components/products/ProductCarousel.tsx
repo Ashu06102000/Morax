@@ -46,7 +46,7 @@ export default function ScrollableCarousel() {
     <div className="flex h-screen ">
       <div
         ref={textListRef}
-        className="w-full h-full overflow-scroll flex flex-col items-start pt-64 pb-80 z-10"
+        className="w-full h-full overflow-scroll flex flex-col items-start pt-64 pb-96 z-10"
       >
         {products.map((product, index) => (
           <div
