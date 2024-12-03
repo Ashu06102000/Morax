@@ -276,10 +276,10 @@ body {
   }
 }
 
-#product-page {
+#product-page,
+#profile-page {
   background-image: radial-gradient(circle at 65%, #100731 20%, #080315 60%);
 }
-
 .paroduct_carousel_calc_height {
   height: calc(100vh - 164px);
 }

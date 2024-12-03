@@ -21,7 +21,6 @@ const NavBar = () => {
   const btnRef = useRef(null);
   const navItemRef = useRef(null);
 
-
   const { audio, setAudio }: any = useAudioStore();
 
   const toggleAudioIndicator = () => {
