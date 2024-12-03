@@ -7,7 +7,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import AuthButton from "../auth/Authbutton";
 import gsap from "gsap";
 import { useAudioStore } from "../../store/store";
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+import { Link } from "react-router-dom";
+import ToggleMenu from "./ToggleMenu";
+const navItems = ["Nexus", "Vault", "Prologue"];
 
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -18,7 +20,7 @@ const NavBar = () => {
   const navContainerRef = useRef(null);
   const btnRef = useRef(null);
   const navItemRef = useRef(null);
-  const { isLoading, user, isAuthenticated } = useAuth0();
+
 
   const { audio, setAudio }: any = useAudioStore();
 
@@ -27,7 +29,7 @@ const NavBar = () => {
     setIsIndicatorActive((prev) => !prev);
     setAudio(!audio);
   };
-  console.log(audio, "audio");
+
   useEffect(() => {
     if (isAudioPlaying) {
       audioElementRef.current.play();
@@ -52,6 +54,7 @@ const NavBar = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
   };
+
   const onHoverAudio = () => {
     if (navItemRef && audio) {
       const audio = new Audio("/audio/navItem.mp3");
@@ -60,6 +63,7 @@ const NavBar = () => {
       });
     }
   };
+  /******  3f29f7ea-9ddc-4045-adae-1011a2de0548  *******/
   const onClickedAudio = () => {
     if (navItemRef && audio) {
       const audio = new Audio("/audio/btnClicked.mp3");
@@ -68,6 +72,7 @@ const NavBar = () => {
       });
     }
   };
+
   return (
     <div
       ref={navContainerRef}
@@ -76,15 +81,17 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
-            {isAuthenticated && user ? (
+            <Link to={""}>
               <img
+                ref={navItemRef}
                 className="h-10 w-10 rounded-full"
-                src={user?.picture}
+                src="/img/moraxLogo.png"
+                onClick={onClickedAudio}
+                onMouseEnter={onHoverAudio}
                 alt=""
               />
-            ) : (
-              <img src="" alt="" />
-            )}
+            </Link>
+
             <Button
               id="product-button"
               title="Products"
@@ -98,7 +105,7 @@ const NavBar = () => {
             />
           </div>
 
-          <div className="flex h-full items-center">
+          <div className="flex h-full items-center gap-10">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
                 <a
@@ -114,29 +121,32 @@ const NavBar = () => {
               ))}
             </div>
 
-            <button
-              onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5"
-              id="audio-button-main"
-            >
-              <audio
-                ref={audioElementRef}
-                className="hidden"
-                src="/audio/loop.mp3"
-                loop
-              />
-              {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={clsx("indicator-line", {
-                    active: isIndicatorActive,
-                  })}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                  }}
+            <div className="flex gap-2">
+              <ToggleMenu />
+              <button
+                onClick={toggleAudioIndicator}
+                className="ml-10 flex items-center space-x-0.5"
+                id="audio-button-main"
+              >
+                <audio
+                  ref={audioElementRef}
+                  className="hidden"
+                  src="/audio/loop.mp3"
+                  loop
                 />
-              ))}
-            </button>
+                {[1, 2, 3, 4].map((bar) => (
+                  <div
+                    key={bar}
+                    className={clsx("indicator-line", {
+                      active: isIndicatorActive,
+                    })}
+                    style={{
+                      animationDelay: `${bar * 0.1}s`,
+                    }}
+                  />
+                ))}
+              </button>
+            </div>
           </div>
         </nav>
       </header>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { productsList } from "../../store/products";
+import { Link } from "react-router-dom";
 
 export default function ScrollableCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,6 +18,7 @@ export default function ScrollableCarousel() {
           Math.max(Math.floor(list.scrollTop / itemHeight), 0),
           products.length - 1
         );
+
         if (newIndex !== activeIndex) {
           setActiveIndex(newIndex);
           rotateCarousel(newIndex);
@@ -66,19 +68,24 @@ export default function ScrollableCarousel() {
         className="w-full h-full overflow-scroll flex flex-col items-start pt-64 pb-96 z-10"
       >
         {products.map((product, index) => (
-          <div
-            key={product.name}
-            className={`text-[8rem] font-bold py-8 transition-colors duration-300 w-full special-font hero-heading   ${
-              index === activeIndex ? "text-[#5542ff]" : "text-blue-75"
-            }`}
-          >
-            {product.name}
-          </div>
+          <Link to={product.Link}>
+            <div
+              key={product.name}
+              className={`text-[8rem] py-8 transition-colors duration-300 w-full prod_list_font hero-heading   ${
+                index === activeIndex ? "text-[#5542ff]" : "text-blue-75"
+              }`}
+            >
+              {product.name}
+              <span className="text-gray-600 text-xs">
+                {product.name === "Nft" ? "coming soon" : ""}
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
 
       <div
-        className="w-3/4 flex items-center justify-center perspective-1000 absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2"
+        className="w-3/4 flex items-center justify-center perspective-1000 absolute top-1/2 left-1/2 transform -translate-x-[20%] -translate-y-1/2"
         style={{ perspective: "1000px" }}
       >
         <div
@@ -93,7 +100,7 @@ export default function ScrollableCarousel() {
           {products.map((product, index) => (
             <div
               key={product.name}
-              className="absolute w-10/12  h-[55vh] rounded-lg shadow-lg bg-gray-200 flex items-center justify-center"
+              className="absolute w-[75%]  h-[50vh] rounded-lg shadow-lg bg-gray-200 flex items-center justify-center"
               style={{
                 transform: `rotateY(${
                   index * (360 / products.length)
