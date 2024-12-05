@@ -19,7 +19,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, [user?.sub]); // Dependency array should include user.sub
+  }, [user?.sub]);
 
   return (
     <div id="profile-page">
@@ -28,11 +28,6 @@ const Profile = () => {
           Pr<b>o</b>fil<b>e</b>
         </h1>
         <div>
-          {/* <img
-          src={user?.picture}
-          alt="User Avatar"
-          className="w-32 h-32 rounded-full"
-        /> */}
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-2">
               <span className="text-base text-white font-general">Name</span>
