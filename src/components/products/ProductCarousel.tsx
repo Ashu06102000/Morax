@@ -72,7 +72,7 @@ export default function ScrollableCarousel() {
             <div
               key={product.name}
               className={`text-[8rem] py-8 transition-colors duration-300 w-full prod_list_font hero-heading   ${
-                index === activeIndex ? "text-[#5542ff]" : "text-blue-75"
+                index === activeIndex ? "text-blue-75" : "text-[#5542ff]"
               }`}
             >
               {product.name}
