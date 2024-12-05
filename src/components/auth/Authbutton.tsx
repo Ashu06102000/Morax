@@ -1,8 +1,26 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from "react";
+import { fetchUserData, saveUserData } from "../../db/db";
 
 const AuthButton = ({ containerStyle }: { containerStyle?: string }) => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
+  useEffect(() => {
+    const storeUserData = async () => {
+      if (isAuthenticated && user) {
+        // Save user data to IndexedDB
+        await saveUserData(user.sub ?? "", {
+          name: user.name,
+          email: user.email,
+        });
+
+        const storedData = await fetchUserData(user.sub ?? "");
+        console.log("Stored Data:", storedData);
+      }
+    };
+    storeUserData();
+  }, [isAuthenticated, user]);
   return isAuthenticated ? (
     <button
       onClick={() =>
