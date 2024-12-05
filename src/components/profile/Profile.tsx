@@ -1,25 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useEffect } from "react";
-import { fetchUserData } from "../../db/db";
 
 const Profile = () => {
   const { user } = useAuth0();
-  const [userData, setUserData] = React.useState<any>(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (user?.sub) {
-          const getUserData = await fetchUserData(user.sub);
-          console.log(getUserData, "user");
-          setUserData(getUserData);
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
-    fetchData();
-  }, [user?.sub]);
 
   return (
     <div id="profile-page">
@@ -32,13 +14,13 @@ const Profile = () => {
             <div className="flex flex-col gap-2">
               <span className="text-base text-white font-general">Name</span>
               <h2 className="text-2xl  text-blue-50 font-medium font-general uppercase">
-                {userData?.name}
+                {user?.name}
               </h2>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-base text-white font-general">Email</span>
               <h2 className="text-2xl  text-blue-50 font-medium font-general">
-                {userData?.email}
+                {user?.email}
               </h2>
             </div>
             <div className="flex flex-col gap-2">
