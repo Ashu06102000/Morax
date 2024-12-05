@@ -3,12 +3,12 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { Button } from "./Button";
-import { useAuth0 } from "@auth0/auth0-react";
-import AuthButton from "../auth/Authbutton";
 import gsap from "gsap";
 import { useAudioStore } from "../../store/store";
 import { Link } from "react-router-dom";
 import ToggleMenu from "./ToggleMenu";
+import { FaShoppingBag } from "react-icons/fa";
+
 const navItems = ["Nexus", "Vault", "Prologue"];
 
 const NavBar = () => {
@@ -119,6 +119,9 @@ const NavBar = () => {
                 </a>
               ))}
             </div>
+            <span>
+              <FaShoppingBag color="white" />
+            </span>
 
             <div className="flex gap-2">
               <ToggleMenu />
