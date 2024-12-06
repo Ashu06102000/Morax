@@ -2,7 +2,7 @@ import GameCardList from "./GameCardList";
 
 const Games = () => {
   return (
-    <div className="pt-32 max-w-screen-2xl ml-auto mr-auto">
+    <div className="pt-32 pb-20 max-w-screen-2xl  ml-auto mr-auto">
       <h1 className="special-font hero-heading">
         Ga<b>m</b>es
       </h1>

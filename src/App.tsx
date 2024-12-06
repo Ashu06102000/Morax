@@ -13,23 +13,25 @@ import { GamingCards } from "./components/cards/GamingCards";
 import { Nft } from "./components/nft/Nft";
 import PageTransition from "./components/genericComponents/PageTransition";
 import Profile from "./components/profile/Profile";
+import GameDetailpage from "./components/games/GameDetailpage";
 
 const App: React.FC = () => {
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
-      <PageTransition>
-        <Routes>
-          <Route path="/protected" element={<ProtectedPage />} />;
-          <Route path="/" element={<HomeLayout />} />
-          <Route path="/products" element={<PrductsPage />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/consoles" element={<Console />} />
-          <Route path="/cards" element={<GamingCards />} />
-          <Route path="/nft" element={<Nft />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </PageTransition>
+      {/* <PageTransition> */}
+      <Routes>
+        <Route path="/protected" element={<ProtectedPage />} />;
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="/products" element={<PrductsPage />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/consoles" element={<Console />} />
+        <Route path="/cards" element={<GamingCards />} />
+        <Route path="/nft" element={<Nft />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/games/:id" element={<GameDetailpage />} />
+      </Routes>
+      {/* </PageTransition> */}
       <Footer />
     </main>
   );

@@ -9,13 +9,10 @@ const AuthButton = ({ containerStyle }: { containerStyle?: string }) => {
   useEffect(() => {
     const storeUserData = async () => {
       if (isAuthenticated && user) {
-        // Save user data to IndexedDB
         await saveUserData(user.sub ?? "", {
           name: user.name,
           email: user.email,
         });
-
-        const storedData = await fetchUserData(user.sub ?? "");
       }
     };
     storeUserData();

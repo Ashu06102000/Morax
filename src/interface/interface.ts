@@ -5,4 +5,7 @@ export interface GamingData {
   category: string;
   stock: number;
   image: string;
+  description?: string;
+  isComingSoon?: boolean;
+  isFeatured?: boolean;
 }

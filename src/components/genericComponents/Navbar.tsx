@@ -61,7 +61,7 @@ const NavBar = () => {
       });
     }
   };
-  /******  3f29f7ea-9ddc-4045-adae-1011a2de0548  *******/
+
   const onClickedAudio = () => {
     if (navItemRef && audio) {
       const audio = new Audio("/audio/btnClicked.mp3");

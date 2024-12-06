@@ -15,6 +15,10 @@ const gamingData = [
     category: "Action",
     stock: 10,
     image: "/img/games/god-of-war.jpg",
+    description:
+      "A massively multiplayer online role-playing game (MMORPG) that combines elements of fantasy, adventure, and strategy.",
+    isComingSoon: false,
+    isFeatured: true,
   },
   {
     id: "2",

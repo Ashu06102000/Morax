@@ -2,7 +2,7 @@ import { openDB } from "idb";
 import { GamingData } from "../interface/interface";
 
 const initDB = async () => {
-  return openDB("userDB", 2, {
+  return openDB("userDB", 4, {
     upgrade(db) {
       if (!db.objectStoreNames.contains("users")) {
         db.createObjectStore("users", {
@@ -43,6 +43,7 @@ export const saveGameData = async (game: any) => {
 export const fetchAllGames = async () => {
   const db = await initDB();
   const games = await db.getAll("games");
+  console.log(games);
   return games as GamingData[];
 };
 

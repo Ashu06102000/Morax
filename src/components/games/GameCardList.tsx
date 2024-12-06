@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { GamingData } from "../../interface/interface";
 import { fetchAllGames } from "../../db/db";
+import GameFeature from "./GameFeature";
+import { Link } from "react-router-dom";
 
 const GameCardList = () => {
   const [games, setGames] = useState<GamingData[]>();
@@ -12,33 +14,36 @@ const GameCardList = () => {
     fetchGames();
   }, []);
   console.log(games);
-  return (
-    <div className="w-full flex flex-wrap relative">
-      {games?.map((games) => {
-        const backgroundImage = `url('${games.image}')`;
 
-        return (
-          <div
-            style={{ backgroundImage }}
-            className="border border-gray-300 bg-cover bg-center bg-no-repeat rounded-lg shadow-md flex-col flex w-[50%] h-[600px] transition-transform transform hover:scale-105"
-          >
-            {/* <img
-              src={games.image}
-              alt={games.name}
-              className="w-full h-full z-[-1] object-cover object-top absolute"
-            /> */}
-            <div className="p-2 text-center">
-              <h3 className="text-lg font-semibold">{games.name}</h3>
-              <p className="text-md text-gray-600 my-1">
-                ${games.price.toFixed(2)}
-              </p>
-              <button className="bg-green-500 text-white border-none rounded px-3 py-1 cursor-pointer text-lg mt-2 hover:bg-green-600">
-                Buy Now
-              </button>
-            </div>
-          </div>
-        );
-      })}
+  const featureGames = games?.filter((data) => {
+    return data.isFeatured;
+  });
+
+  return (
+    <div className="w-full flex flex-wrap relative gap-2">
+      <GameFeature gamesData={featureGames} />
+      <div className="grid grid-cols-4 gap-2 w-full">
+        {games?.map((games) => {
+          const backgroundImage = `url('${games.image}')`;
+          if (games.isFeatured) {
+            return;
+          }
+
+          return (
+            <Link
+              to={`/games/${games.id}`}
+              style={{ backgroundImage }}
+              className="border border-gray-300 bg-cover bg-no-repeat shadow-md flex-col flex h-[400px] bg-center"
+            >
+              <div className="p-2 text-center h-full flex flex-col justify-end bg-[#0000002b] transition-all duration-500 ease-in-out hover:bg-[#00000059]">
+                <h3 className="font-semibold font-zentry text-4xl text-blue-50">
+                  {games.name}
+                </h3>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
