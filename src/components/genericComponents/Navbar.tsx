@@ -14,7 +14,6 @@ const navItems = ["Nexus", "Vault", "Prologue"];
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
-  const [btnAudio, setBtnAudio] = useState(false);
 
   const audioElementRef = useRef<HTMLAudioElement>({} as HTMLAudioElement);
   const navContainerRef = useRef(null);

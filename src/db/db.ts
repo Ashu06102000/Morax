@@ -1,4 +1,5 @@
 import { openDB } from "idb";
+import { GamingData } from "../interface/interface";
 
 const initDB = async () => {
   return openDB("userDB", 2, {
@@ -42,7 +43,7 @@ export const saveGameData = async (game: any) => {
 export const fetchAllGames = async () => {
   const db = await initDB();
   const games = await db.getAll("games");
-  return games;
+  return games as GamingData[];
 };
 
 export const fetchGameById = async (id: string) => {

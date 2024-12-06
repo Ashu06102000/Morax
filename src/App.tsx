@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 
 import PrductsPage from "./components/products/PrductsPage";
 import ProtectedPage from "./components/auth/ProtectedPage";
-import { Games } from "./components/games/Games";
+import Games from "./components/games/Games";
 import { Console } from "./components/console/Console";
 import { GamingCards } from "./components/cards/GamingCards";
 import { Nft } from "./components/nft/Nft";

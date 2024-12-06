@@ -16,7 +16,6 @@ const AuthButton = ({ containerStyle }: { containerStyle?: string }) => {
         });
 
         const storedData = await fetchUserData(user.sub ?? "");
-        console.log("Stored Data:", storedData);
       }
     };
     storeUserData();

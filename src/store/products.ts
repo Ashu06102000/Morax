@@ -14,7 +14,7 @@ const gamingData = [
     price: 49.99,
     category: "Action",
     stock: 10,
-    image: "/games/god-of-war.jpg",
+    image: "/img/games/god-of-war.jpg",
   },
   {
     id: "2",
@@ -22,7 +22,7 @@ const gamingData = [
     price: 59.99,
     category: "Adventure",
     stock: 15,
-    image: "/games/last-of-us.jpg",
+    image: "/img/games/last-of-us.jpg",
   },
   {
     id: "3",
@@ -30,7 +30,7 @@ const gamingData = [
     price: 69.99,
     category: "Shooter",
     stock: 20,
-    image: "/games/halo-infinite.jpg",
+    image: "/img/games/halo-infinite.jpg",
   },
   {
     id: "4",
@@ -38,7 +38,7 @@ const gamingData = [
     price: 59.99,
     category: "RPG",
     stock: 25,
-    image: "/games/elden-ring.jpg",
+    image: "/img//games/elden-ring.jpg",
   },
   {
     id: "5",
@@ -46,7 +46,7 @@ const gamingData = [
     price: 39.99,
     category: "Sports",
     stock: 30,
-    image: "/games/fifa-24.jpg",
+    image: "/img//games/fifa-24.jpg",
   },
   {
     id: "6",
@@ -54,7 +54,7 @@ const gamingData = [
     price: 29.99,
     category: "RPG",
     stock: 8,
-    image: "/games/cyberpunk-2077.jpg",
+    image: "/img//games/cyberpunk-2077.jpg",
   },
   {
     id: "7",
@@ -62,7 +62,7 @@ const gamingData = [
     price: 49.99,
     category: "Adventure",
     stock: 12,
-    image: "/games/red-dead-2.jpg",
+    image: "/img//games/red-dead-2.jpg",
   },
   {
     id: "8",
@@ -70,7 +70,7 @@ const gamingData = [
     price: 69.99,
     category: "Racing",
     stock: 18,
-    image: "/games/forza-5.jpg",
+    image: "/img//games/forza-5.jpg",
   },
   {
     id: "9",
@@ -78,7 +78,7 @@ const gamingData = [
     price: 59.99,
     category: "Shooter",
     stock: 22,
-    image: "/games/cod-mw2.jpg",
+    image: "/img//games/cod-mw2.jpg",
   },
   {
     id: "10",
@@ -86,7 +86,7 @@ const gamingData = [
     price: 19.99,
     category: "Sandbox",
     stock: 50,
-    image: "/games/minecraft.jpg",
+    image: "/img//games/minecraft.jpg",
   },
 ];
 
