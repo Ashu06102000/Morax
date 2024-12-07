@@ -14,6 +14,11 @@ const initDB = async () => {
           keyPath: "id",
         });
       }
+      if (!db.objectStoreNames.contains("consoles")) {
+        db.createObjectStore("consoles", {
+          keyPath: "id",
+        });
+      }
     },
   });
 };
@@ -39,6 +44,13 @@ export const saveGameData = async (game: any) => {
   await tx.done;
   console.log("Game data saved to IndexedDB");
 };
+export const saveConsolesData = async (console: any) => {
+  const db = await initDB();
+  const tx = db.transaction("consoles", "readwrite");
+  await tx.store.put(console);
+  await tx.done;
+  console.log("Console data saved to IndexedDB");
+};
 
 export const fetchAllGames = async () => {
   const db = await initDB();
@@ -47,8 +59,20 @@ export const fetchAllGames = async () => {
   return games as GamingData[];
 };
 
+export const fetchConsoleById = async (id: string) => {
+  const db = await initDB();
+  const console = await db.get("consoles", id);
+  return console;
+};
+
 export const fetchGameById = async (id: string) => {
   const db = await initDB();
   const game = await db.get("games", id);
   return game;
+};
+
+export const fetchConsoonsById = async (id: string) => {
+  const db = await initDB();
+  const console = await db.get("consoles", id);
+  return console;
 };

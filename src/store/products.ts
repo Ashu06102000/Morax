@@ -1,4 +1,4 @@
-import { saveGameData } from "../db/db";
+import { saveConsolesData, saveGameData } from "../db/db";
 
 export const productsList = [
   { name: "Games", image: "videos/feature-1.mp4", Link: "/games" },
@@ -379,6 +379,220 @@ const gamingData = [
   },
 ];
 
+const gamingConsoles = [
+  {
+    id: "1",
+    name: "PlayStation 5",
+    price: 499.99,
+    category: "Console",
+    stock: 50,
+    image: "/img/consoles/ps5.jpg",
+    description:
+      "Experience lightning-fast loading with an ultra-high-speed SSD and deeper immersion with haptic feedback and adaptive triggers.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["PlayStation Network", "Blu-ray"],
+    requirements: {
+      minimum: {
+        requires: "4K TV or Monitor (optional for optimal experience)",
+        storage: "825 GB built-in SSD",
+        connectivity: "HDMI 2.1, Wi-Fi 6, Ethernet",
+        additional_notes: "Supports backward compatibility for PS4 games.",
+      },
+    },
+  },
+  {
+    id: "2",
+    name: "Xbox Series X",
+    price: 499.99,
+    category: "Console",
+    stock: 40,
+    image: "/img/consoles/xbox-series-x.jpg",
+    description:
+      "The most powerful Xbox ever with true 4K gaming, up to 120 FPS, and 1TB of custom SSD for faster load times.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["Xbox Game Pass", "Blu-ray"],
+    requirements: {
+      minimum: {
+        requires: "4K TV or Monitor (optional for optimal experience)",
+        storage: "1TB built-in SSD",
+        connectivity: "HDMI 2.1, Wi-Fi 6, Ethernet",
+        additional_notes:
+          "Supports backward compatibility for Xbox One and 360 games.",
+      },
+    },
+  },
+  {
+    id: "3",
+    name: "Nintendo Switch OLED",
+    price: 349.99,
+    category: "Console",
+    stock: 30,
+    image: "/img/consoles/switch-oled.jpg",
+    description:
+      "A hybrid console with a stunning 7-inch OLED display, improved audio, and enhanced handheld mode.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["Nintendo eShop", "Cartridges"],
+    requirements: {
+      minimum: {
+        requires: "Internet for updates and eShop access",
+        storage: "64GB built-in (expandable via microSD)",
+        connectivity: "Wi-Fi, Bluetooth, USB-C",
+        additional_notes: "Compatible with all Switch accessories and games.",
+      },
+    },
+  },
+  {
+    id: "4",
+    name: "Steam Deck",
+    price: 399.99,
+    category: "Handheld",
+    stock: 25,
+    image: "/img/consoles/steam-deck.jpg",
+    description:
+      "A powerful handheld PC that brings Steam games to your fingertips with AMD Zen 2 and RDNA 2 technology.",
+    isComingSoon: false,
+    isFeatured: false,
+    devices: ["SteamOS", "PC"],
+    requirements: {
+      minimum: {
+        requires: "Steam account",
+        storage: "64GB, 256GB, or 512GB SSD options",
+        connectivity: "Wi-Fi, Bluetooth, USB-C",
+        additional_notes: "Supports dual-booting and external displays.",
+      },
+    },
+  },
+  {
+    id: "5",
+    name: "PlayStation 4 Pro",
+    price: 399.99,
+    category: "Console",
+    stock: 20,
+    image: "/img/consoles/ps4-pro.jpg",
+    description:
+      "Enhanced performance with 4K gaming and HDR compatibility for an immersive experience.",
+    isComingSoon: false,
+    isFeatured: false,
+    devices: ["PlayStation Network", "Blu-ray"],
+    requirements: {
+      minimum: {
+        requires: "4K TV for optimal experience",
+        storage: "1TB built-in HDD",
+        connectivity: "HDMI 2.0, Wi-Fi 5, Ethernet",
+        additional_notes: "Compatible with PS4 games.",
+      },
+    },
+  },
+  {
+    id: "6",
+    name: "Xbox Series S",
+    price: 299.99,
+    category: "Console",
+    stock: 35,
+    image: "/img/consoles/xbox-series-s.jpg",
+    description:
+      "Next-gen gaming with a compact design, 1440p resolution, and up to 120 FPS performance.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["Xbox Game Pass", "Digital-only"],
+    requirements: {
+      minimum: {
+        requires: "HD TV or Monitor",
+        storage: "512GB built-in SSD",
+        connectivity: "HDMI 2.1, Wi-Fi 6, Ethernet",
+        additional_notes: "Digital-only console with no disc drive.",
+      },
+    },
+  },
+  {
+    id: "7",
+    name: "Nintendo Switch Lite",
+    price: 199.99,
+    category: "Handheld",
+    stock: 30,
+    image: "/img/consoles/switch-lite.jpg",
+    description:
+      "A compact, lightweight handheld console perfect for gaming on the go.",
+    isComingSoon: false,
+    isFeatured: false,
+    devices: ["Nintendo eShop", "Cartridges"],
+    requirements: {
+      minimum: {
+        requires: "Internet for updates and eShop access",
+        storage: "32GB built-in (expandable via microSD)",
+        connectivity: "Wi-Fi",
+        additional_notes: "Designed exclusively for handheld mode.",
+      },
+    },
+  },
+  {
+    id: "8",
+    name: "Meta Quest 2",
+    price: 299.99,
+    category: "VR",
+    stock: 15,
+    image: "/img/consoles/meta-quest-2.jpg",
+    description:
+      "An all-in-one VR headset with no PC required, offering immersive gaming and social experiences.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["Oculus Store"],
+    requirements: {
+      minimum: {
+        requires: "Oculus account",
+        storage: "128GB or 256GB options",
+        connectivity: "Wi-Fi, Bluetooth",
+        additional_notes: "Optional PC link for enhanced performance.",
+      },
+    },
+  },
+  {
+    id: "9",
+    name: "Valve Index",
+    price: 999.99,
+    category: "VR",
+    stock: 10,
+    image: "/img/consoles/valve-index.jpg",
+    description:
+      "High-fidelity VR with superior tracking, display, and comfort.",
+    isComingSoon: false,
+    isFeatured: false,
+    devices: ["SteamVR"],
+    requirements: {
+      minimum: {
+        requires: "High-end PC",
+        storage: "50GB for SteamVR",
+        connectivity: "DisplayPort, USB 3.0",
+        additional_notes: "Requires external base stations.",
+      },
+    },
+  },
+  {
+    id: "10",
+    name: "PlayStation VR2",
+    price: 549.99,
+    category: "VR",
+    stock: 10,
+    image: "/img/consoles/ps-vr2.jpg",
+    description:
+      "Next-gen VR experience with stunning visuals and adaptive triggers.",
+    isComingSoon: false,
+    isFeatured: true,
+    devices: ["PlayStation Network"],
+    requirements: {
+      minimum: {
+        requires: "PlayStation 5",
+        storage: "50GB for VR games",
+        connectivity: "USB-C, HDMI",
+        additional_notes: "Compatible only with PS5.",
+      },
+    },
+  },
+];
+
 const seedGamingData = async () => {
   for (const game of gamingData) {
     await saveGameData(game);
@@ -387,3 +601,10 @@ const seedGamingData = async () => {
 };
 
 seedGamingData();
+
+const seedConsoleData = async () => {
+  for (const console of gamingConsoles) {
+    await saveConsolesData(console);
+  }
+  console.log("Console data seeded!");
+};

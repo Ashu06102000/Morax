@@ -31,7 +31,7 @@ const GameDetailpage = () => {
       <video className="absolute -z-10" muted loop autoPlay src={bg} />
       <div className="p-28 z-10  h-full flex justify-between rounded-lg  bg-[#000000c2]">
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 max-w-2xl">
             <div className="flex flex-col ">
               <span className="special-font text-yellow-300 ">
                 Supported platform-
@@ -91,7 +91,7 @@ const GameDetailpage = () => {
               src={gameDetail?.image}
               alt={`Image of ${gameDetail?.name}`}
             />
-            <h4 className="font-semibold text-center text-6xl text-blue-50 -mt-12 ">
+            <h4 className="font-semibold text-center text-5xl text-blue-50 -mt-12 ">
               {gameDetail?.name}
             </h4>
           </div>
