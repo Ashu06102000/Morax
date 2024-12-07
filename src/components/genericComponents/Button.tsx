@@ -43,11 +43,13 @@ export const Button = ({
       });
     }
   };
-
+  console.log(containerClass);
   const ButtonContent = (
     <button
       id={id}
-      className={`flex relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black ${containerClass}`}
+      className={`flex relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-7 py-3 text-black ${
+        containerClass || "bg-violet-50"
+      }`}
       ref={btnRef}
       onClick={onClickedAudio}
       onMouseEnter={() => {
