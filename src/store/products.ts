@@ -20,6 +20,31 @@ const gamingData = [
     isComingSoon: false,
     isFeatured: true,
     devices: ["PC", "Xbox", "Playstation"],
+    requirements: {
+      minimum: {
+        requires: "64-bit processor and operating system",
+        OS: "Windows 10 64-bit",
+        processor: "Intel i5-4670k or AMD Ryzen 3 1200",
+        memory: "8 GB RAM",
+        graphics:
+          "NVIDIA GTX 1060 (6GB) or AMD RX 5500 XT (8GB) or Intel Arc A750",
+        DirectX: "Version 12",
+        storage: "190 GB available space",
+        additional_notes:
+          "Windows version 2004 2020-05-27 19041. 6GB GPU is required",
+      },
+      recommended: {
+        requires: "64-bit processor and operating system",
+        OS: "Windows 10 64-bit",
+        processor: "Intel i5-8600 or AMD Ryzen 5 3600",
+        memory: "16 GB RAM",
+        graphics: "NVIDIA RTX 2060 Super or AMD RX 5700 or Intel Arc A770",
+        DirectX: "Version 12",
+        storage: "190 GB available space",
+        additional_notes:
+          "Windows version 2004 2020-05-27 19041. 6GB GPU is required",
+      },
+    },
   },
   {
     id: "2",
@@ -31,6 +56,28 @@ const gamingData = [
     description:
       "Experience the emotional storytelling and unforgettable characters in The Last of Us, winner of over 200 Game of the Year awards.",
     devices: ["PC", "PlayStation 4", "Xbox One", "Google Stadia"],
+    requirements: {
+      minimum: {
+        requires: "64-bit processor and operating system",
+        OS: "Windows 10 (Version 1909 or Newer)",
+        processor: "AMD Ryzen 5 1500X, Intel Core i7-4770K",
+        memory: "16 GB RAM",
+        graphics:
+          "AMD Radeon RX 470 (4 GB), AMD Radeon RX 6500 XT (4 GB), NVIDIA GeForce GTX 970 (4 GB), NVIDIA GeForce GTX 1050 Ti (4 GB)",
+        storage: "100 GB available space",
+        additional_notes: "SSD Recommended",
+      },
+      recommended: {
+        requires: "64-bit processor and operating system",
+        OS: "Windows 10 (Version 1909 or Newer)",
+        processor: "AMD Ryzen 5 3600X, Intel Core i7-8700",
+        memory: "16 GB RAM",
+        graphics:
+          "AMD Radeon RX 5700 XT (8 GB), AMD Radeon RX 6600 XT (8 GB), NVIDIA GeForce RTX 2070 SUPER (8 GB), NVIDIA GeForce RTX 3060 (8 GB)",
+        storage: "100 GB available space",
+        additional_notes: "SSD Recommended",
+      },
+    },
   },
   {
     id: "3",
@@ -42,6 +89,24 @@ const gamingData = [
     description:
       "When all hope is lost and humanity’s fate hangs in the balance, the Master Chief is ready to confront the most ruthless foe he’s ever faced. Step inside the armor of humanity’s greatest hero to experience an epic open-world adventure and explore the massive scale of the Halo ring.",
     devices: ["PC", "Xbox One", "Xbox Series X|S"],
+    requirements: {
+      minimum: {
+        processor: "AMD Ryzen 5 1600 or Intel i5-4440",
+        os: "Windows 10 RS5 x64",
+        memory: "8 GB RAM",
+        graphics: "AMD RX 570 or Nvidia GTX 1050 Ti",
+        directx: "Version 12",
+        storage: "50 GB available space",
+      },
+      recommended: {
+        processor: "AMD Ryzen 7 3700X or Intel i7-9700K",
+        os: "Windows 10 19H2 x64",
+        memory: "16 GB RAM",
+        graphics: "Radeon RX 5700 XT or Nvidia RTX 2070",
+        directx: "Version 12",
+        storage: "50 GB available space",
+      },
+    },
   },
   {
     id: "4",
@@ -59,6 +124,26 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S",
     ],
+    requirements: {
+      minimum: {
+        processor: "Intel Core i5-8400 or AMD Ryzen 3 3300X",
+        os: "Windows 10",
+        memory: "12 GB RAM",
+        graphics: "NVIDIA GeForce GTX 1060 3 GB or AMD Radeon RX 580 4 GB",
+        directx: "Version 12",
+        storage: "60 GB available space",
+        sound_card: "Windows Compatible Audio Device",
+      },
+      recommended: {
+        processor: "Intel Core i7-8700K or AMD Ryzen 5 3600X",
+        os: "Windows 10/11",
+        memory: "16 GB RAM",
+        graphics: "NVIDIA GeForce GTX 1070 8 GB or AMD Radeon RX Vega 56 8 GB",
+        directx: "Version 12",
+        storage: "60 GB available space",
+        sound_card: "Windows Compatible Audio Device",
+      },
+    },
   },
   {
     id: "5",
@@ -77,6 +162,30 @@ const gamingData = [
       "Xbox Series X|S",
       "Nintendo Switch",
     ],
+    requirements: {
+      minimum: {
+        processor: "AMD Ryzen 5 1600 or Intel Core i5 6600k",
+        os: "Windows 10 - 64-Bit (Latest Update)",
+        memory: "8 GB RAM",
+        graphics: "AMD RX 570 or Nvidia GTX 1050 Ti",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "100 GB available space",
+        sound_card:
+          "DirectX: 12 Compatible video card or equivalent (feature level 12_0)",
+      },
+      recommended: {
+        processor: "AMD Ryzen 7 2700X or Intel Core i7 6700",
+        os: "Windows 10 - 64-Bit (Latest Update)",
+        memory: "12 GB RAM",
+        graphics: "AMD RX 5600 XT or Nvidia GTX 1660",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "100 GB available space",
+        sound_card:
+          "DirectX: 12 Compatible video card or equivalent (feature level 12_0)",
+      },
+    },
   },
   {
     id: "6",
@@ -95,6 +204,27 @@ const gamingData = [
       "Xbox Series X|S",
       "Google Stadia",
     ],
+    requirements: {
+      minimum: {
+        processor: "Core i7-6700 or Ryzen 5 1600",
+        os: "64-bit Windows 10",
+        memory: "12 GB RAM",
+        graphics: "GeForce GTX 1060 6GB or Radeon RX 580 8GB or Arc A380",
+        directx: "Version 12",
+        storage: "70 GB available space",
+        additional_notes:
+          "SSD required. Attention: In this game, you may encounter visual effects that could trigger seizures or loss of consciousness in a minority of players. Stop playing and seek medical attention immediately if symptoms occur.",
+      },
+      recommended: {
+        processor: "Core i7-12700 or Ryzen 7 7800X3D",
+        os: "64-bit Windows 10",
+        memory: "16 GB RAM",
+        graphics: "GeForce RTX 2060 SUPER or Radeon RX 5700 XT or Arc A770",
+        directx: "Version 12",
+        storage: "70 GB available space",
+        additional_notes: "SSD required.",
+      },
+    },
   },
   {
     id: "7",
@@ -112,6 +242,26 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S (via backward compatibility)",
     ],
+    requirements: {
+      minimum: {
+        processor: "Intel® Core™ i5-2500K / AMD FX-6300",
+        os: "Windows 10 - 64-bit",
+        memory: "8 GB RAM",
+        graphics: "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        network: "Broadband Internet connection",
+        storage: "150 GB available space",
+        sound_card: "Direct X Compatible",
+      },
+      recommended: {
+        processor: "Intel® Core™ i7-4770K / AMD Ryzen 5 1500X",
+        os: "Windows 10 - 64-bit",
+        memory: "12 GB RAM",
+        graphics: "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        network: "Broadband Internet connection",
+        storage: "150 GB available space",
+        sound_card: "Direct X Compatible",
+      },
+    },
   },
   {
     id: "8",
@@ -123,6 +273,26 @@ const gamingData = [
     description:
       "Forza Horizon 5 is a racing video game developed by Playground Games and published by Microsoft Studios. It is the fifth installment in the Forza Horizon series.",
     devices: ["PC", "Xbox One", "Xbox Series X|S"],
+    requirements: {
+      minimum: {
+        processor: "Intel i5-4460 or AMD Ryzen 3 1200",
+        os: "Windows 10 version 18362.0 or higher",
+        memory: "8 GB RAM",
+        graphics: "NVidia GTX 970, AMD RX 470, OR Intel Arc A380",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "110 GB available space",
+      },
+      recommended: {
+        processor: "Intel i5-8400 or AMD Ryzen 5 1500X",
+        os: "Windows 10 version 18362.0 or higher",
+        memory: "16 GB RAM",
+        graphics: "NVidia GTX 1070, AMD RX 590, OR Intel Arc A750",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "110 GB available space",
+      },
+    },
   },
   {
     id: "9",
@@ -140,6 +310,28 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S",
     ],
+    requirements: {
+      minimum: {
+        processor: "Intel Core i3-6100 / Core i5-2500K or AMD Ryzen 3 1200",
+        os: "Windows 10 64 Bit (latest update)",
+        memory: "8 GB RAM",
+        graphics:
+          "NVIDIA GeForce GTX 960 or AMD Radeon RX 470 - DirectX 12.0 compatible system",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "125 GB available space",
+      },
+      recommended: {
+        processor: "Intel Core i5-6600K / Core i7-4770 or AMD Ryzen 5 1400",
+        os: "Windows 10 64 Bit (latest update) or Windows 11 64 Bit (latest update)",
+        memory: "8 GB RAM",
+        graphics:
+          "NVIDIA GeForce GTX 1060 or AMD Radeon RX 580 - DirectX 12.0 compatible system or Intel Arc A770",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "125 GB available space",
+      },
+    },
   },
   {
     id: "10",
@@ -160,6 +352,30 @@ const gamingData = [
       "Mobile (iOS & Android)",
       "Other legacy platforms",
     ],
+    requirements: {
+      minimum: {
+        processor: "Core i5 2.8GHz or equivalent",
+        os: "Windows 10 (May 2020 Update or higher) or Windows 11",
+        memory: "8 GB RAM",
+        graphics:
+          "NVIDIA GeForce GTX 780 or AMD Radeon 285 or Intel HD 520 or equivalent DX12 GPU",
+        directx: "Version 12",
+        storage: "24 GB available space",
+        additional_notes:
+          "Performance increases with higher-end systems. Not supported on Windows 10S.",
+      },
+      recommended: {
+        processor: "Core i5 3.4GHz or equivalent",
+        os: "Windows 10 (May 2020 Update or higher) or Windows 11",
+        memory: "8 GB RAM",
+        graphics: "NVIDIA GTX 1060 or AMD Radeon 580",
+        directx: "Version 12",
+        network: "Broadband Internet connection",
+        storage: "24 GB available space",
+        additional_notes:
+          "Performance increases with higher-end systems. Not supported on Windows 10S.",
+      },
+    },
   },
 ];
 
