@@ -69,11 +69,13 @@ const GameDetailpage = () => {
     });
   });
   return (
-    <div className="py-20 bg-no-repeat bg-yellow-300 relative bg-cover w-full">
+    <div className="py-20 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
         <div className="flex flex-col gap-4">
-          <h2 className="font-zentry text-[8rem]">{gameDetail?.name}</h2>
-          <p className="text-black text-xl font-semibold font-robert-regular max-w-[30%]">
+          <h2 className="font-zentry text-blue-50 text-[8rem]">
+            {gameDetail?.name}
+          </h2>
+          <p className="text-white text-xl font-semibold font-robert-regular max-w-[30%]">
             {gameDetail?.description}
           </p>
         </div>
@@ -89,24 +91,29 @@ const GameDetailpage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 justify-center items-center">
             <div className="flex flex-col gap-8 max-w-2xl">
-              <div className="flex flex-col ">
-                <span className="special-font text-black font-semibold">
-                  Supported platform-
+              <div
+                className="flex flex-col gap-6 bg-black border border-gray-500 rounded-lg px-4 py-6 max-w-xs
+              "
+              >
+                <span className="special-font text-white font-semibold text-4xl uppercase">
+                  Supported platform
                 </span>
-                <div>
+                <div className="flex flex-col gap-[2px] items-end">
                   {gameDetail?.devices.map((device: any) => (
-                    <span className="font-general text-black">{device},</span>
+                    <span className="font-general text-xs text-blue-50">
+                      {device},
+                    </span>
                   ))}
                 </div>
               </div>
 
               <div className="">
-                <h4 className=" special-font text-black font-semibold">
+                <h4 className=" special-font text-white font-semibold">
                   Minimum System Requirements
                 </h4>
-                <ul className="text-black mt-2">
+                <ul className="text-white mt-2 flex flex-col gap-2">
                   {minimum ? (
                     Object.entries(minimum).map(([key, value]) => (
                       <li key={key} className="font-general">
@@ -123,14 +130,14 @@ const GameDetailpage = () => {
               </div>
 
               <div className="">
-                <h4 className=" special-font text-black font-semibold">
+                <h4 className=" special-font text-white font-semibold">
                   Recommended System Requirements
                 </h4>
                 <ul className="text-black mt-2">
                   {recommended ? (
                     Object.entries(recommended).map(([key, value]) => (
                       <li key={key} className="font-general">
-                        <strong className="text-black">
+                        <strong className="text-white">
                           {key.replace(/_/g, " ").toUpperCase()}:
                         </strong>{" "}
                         {value as string}
