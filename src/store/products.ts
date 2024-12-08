@@ -12,7 +12,7 @@ const gamingData = [
     id: "1",
     name: "God of War",
     price: 49.99,
-    category: "Action",
+    category: ["Action", "Adventure", "RPG", "3D"],
     stock: 10,
     image: "/img/games/god-of-war.jpg",
     description:

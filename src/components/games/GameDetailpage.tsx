@@ -8,11 +8,12 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import AnimatedTitle from "../genericComponents/AnimatedTile";
 import OnScrollUpCard from "../genericComponents/OnScrollUpCard";
+import { gameDetails } from "../../interface/interface";
 
 gsap.registerPlugin(ScrollTrigger);
 const GameDetailpage = () => {
   const { id } = useParams<{ id: string }>();
-  const [gameDetail, setGameDetail] = useState<any>(null);
+  const [gameDetail, setGameDetail] = useState<gameDetails>();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -70,35 +71,12 @@ const GameDetailpage = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
   });
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
-        {
-          transform:
-            "perspective(1000px) translate(0px, 100px) rotateX(-40deg)",
-          transformOrigin: "center top",
-          opacity: 0,
-        },
-        {
-          transform: "perspective(1000px) translate(0px, 0px) rotateX(0deg)",
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 100%",
-            end: "top 30%",
-            scrub: true,
-          },
-        }
-      );
-    }
-  }, []);
+  const miniRef = useRef<HTMLDivElement>(null);
+  const supPlatRef = useRef<HTMLDivElement>(null);
+  const recRef = useRef<HTMLDivElement>(null);
+  const catRef = useRef<HTMLDivElement>(null);
   return (
-    <div className="py-20 bg-no-repeat bg-black relative bg-cover w-full">
+    <div className="py-40 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
         <div className="flex flex-col gap-4">
           <h2 className="font-zentry text-blue-50 text-[8rem]">
@@ -123,41 +101,68 @@ const GameDetailpage = () => {
             <AnimatedTitle title={"specitication"} containerClass="" />
           </div>
 
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <div className="flex gap-8 max-w-2xl">
-              <div className="flex">
-                <div
-                  className="flex flex-col gap-10 h-fit bg-black border border-gray-700 rounded-lg px-4 py-6 max-w-xs
+          <div className="flex flex-col gap-8 justify-center items-center">
+            <div className="flex gap-8 max-w-4xl">
+              <div className="flex flex-col gap-10 items-end">
+                <OnScrollUpCard containerRef={supPlatRef} style={""}>
+                  <div
+                    className="flex flex-col gap-10 h-fit bg-black border border-gray-700 rounded-lg px-4 py-6 max-w-xs
               "
-                >
-                  <span className="special-font text-white font-semibold text-4xl uppercase">
-                    Supported platform
-                  </span>
-                  <div className="flex flex-col gap-[2px] items-end">
-                    {gameDetail?.devices.map((device: any) => (
-                      <span className="font-general text-xs text-blue-50">
-                        {device},
-                      </span>
-                    ))}
+                  >
+                    <h4 className="special-font text-white font-semibold text-4xl uppercase">
+                      Supported platform
+                    </h4>
+                    <div className="flex flex-col gap-[2px] items-end">
+                      {gameDetail?.devices.map((device: any) => (
+                        <span className="font-general text-xs text-blue-50">
+                          {device},
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div>
-                <div className="bg-yellow-300">
-                  <h4>{gameDetail.category}</h4>
-                </div>
+                </OnScrollUpCard>
                 <OnScrollUpCard
-                  containerRef={containerRef}
-                  style={"border bg-white rounded-lg p-4 "}
+                  containerRef={recRef}
+                  style={"border bg-white rounded-lg p-4 gap-10 flex flex-col "}
                 >
-                  <h4 className=" special-font text-white font-semibold">
+                  <h4 className="special-font text-black font-semibold text-4xl uppercase">
+                    Recommended System Requirements
+                  </h4>
+                  <ul className="text-white mt-2 flex flex-col gap-2">
+                    {recommended ? (
+                      Object.entries(recommended).map(([key, value]) => (
+                        <li
+                          key={key}
+                          className="special-font text-base text-black uppercase"
+                        >
+                          <strong className=" text-black">
+                            {key.replace(/_/g, " ").toUpperCase()}:
+                          </strong>{" "}
+                          {value as string}
+                        </li>
+                      ))
+                    ) : (
+                      <li>No recommended requirements available.</li>
+                    )}
+                  </ul>
+                </OnScrollUpCard>
+              </div>
+              <div className="flex flex-col gap-8">
+                <OnScrollUpCard
+                  containerRef={miniRef}
+                  style={"border bg-white rounded-lg p-4 gap-10 flex flex-col "}
+                >
+                  <h4 className="special-font text-black  text-4xl font-semibold uppercase">
                     Minimum System Requirements
                   </h4>
                   <ul className="text-white mt-2 flex flex-col gap-2">
                     {minimum ? (
                       Object.entries(minimum).map(([key, value]) => (
-                        <li key={key} className="font-general">
-                          <strong className=" text-black ">
+                        <li
+                          key={key}
+                          className="special-font text-base text-black uppercase"
+                        >
+                          <strong className=" text-black">
                             {key.replace(/_/g, " ").toUpperCase()}:
                           </strong>{" "}
                           {value as string}
@@ -168,26 +173,28 @@ const GameDetailpage = () => {
                     )}
                   </ul>
                 </OnScrollUpCard>
-
-                <div className="">
-                  <h4 className=" special-font text-white font-semibold">
-                    Recommended System Requirements
-                  </h4>
-                  <ul className="text-black mt-2">
-                    {recommended ? (
-                      Object.entries(recommended).map(([key, value]) => (
-                        <li key={key} className="font-general">
-                          <strong className="text-white">
-                            {key.replace(/_/g, " ").toUpperCase()}:
-                          </strong>{" "}
-                          {value as string}
-                        </li>
-                      ))
-                    ) : (
-                      <li>No recommended requirements available.</li>
-                    )}
-                  </ul>
-                </div>
+                <OnScrollUpCard containerRef={catRef} style={""}>
+                  <div
+                    className="flex flex-col gap-10 h-fit bg-yellow-300 border border-gray-700 rounded-lg px-4 py-6 max-w-xs w-fit
+              "
+                  >
+                    <h4 className="special-font text-black font-semibold text-4xl uppercase">
+                      Category
+                    </h4>
+                    <div className="flex flex-col gap-[2px] items-end">
+                      {gameDetail?.category.map((cat) => {
+                        return (
+                          <span
+                            key={cat}
+                            className="font-general text-xs text-black"
+                          >
+                            {cat},
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </OnScrollUpCard>
               </div>
             </div>
           </div>

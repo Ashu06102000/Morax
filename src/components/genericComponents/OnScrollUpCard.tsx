@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const OnScrollUpCard = ({
   children,
@@ -8,39 +11,49 @@ const OnScrollUpCard = ({
 }: {
   children: React.ReactNode;
   containerRef: React.RefObject<HTMLDivElement>;
-  style: String;
+  style: string;
 }) => {
   useEffect(() => {
     if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
+      const element = containerRef.current;
+
+      const animation = gsap.fromTo(
+        element,
         {
-          transform:
-            "perspective(1000px) translate(0px, 100px) rotateX(-40deg)",
-          transformOrigin: "center top",
           opacity: 0,
+          y: 100,
+          rotationX: -40,
+          transformPerspective: 1000,
+          transformOrigin: "center top",
         },
         {
-          transform: "perspective(1000px) translate(0px, 0px) rotateX(0deg)",
           opacity: 1,
-          duration: 1.5,
+          y: 0,
+          rotationX: 0,
+          duration: 1,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 100%",
+            trigger: element,
+            start: "top 90%",
             end: "top 30%",
-            scrub: true,
+            scrub: 0.5,
+            toggleActions: "play none none reverse",
           },
         }
       );
+
+      return () => {
+        animation.scrollTrigger?.kill();
+        animation.kill();
+      };
     }
-  }, []);
+  }, [containerRef]);
+
   return (
     <div
       style={{
-        transform: "perspective(1000px) translate(0px, 100px) rotateX(-40deg)",
         transformOrigin: "center top",
-        opacity: 0,
+        willChange: "transform, opacity",
       }}
       ref={containerRef}
       className={`${style}`}
