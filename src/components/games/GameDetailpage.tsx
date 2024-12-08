@@ -6,6 +6,8 @@ import { Button } from "../genericComponents/Button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import AnimatedTitle from "../genericComponents/AnimatedTile";
+import OnScrollUpCard from "../genericComponents/OnScrollUpCard";
 
 gsap.registerPlugin(ScrollTrigger);
 const GameDetailpage = () => {
@@ -68,6 +70,33 @@ const GameDetailpage = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
   });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      gsap.fromTo(
+        containerRef.current,
+        {
+          transform:
+            "perspective(1000px) translate(0px, 100px) rotateX(-40deg)",
+          transformOrigin: "center top",
+          opacity: 0,
+        },
+        {
+          transform: "perspective(1000px) translate(0px, 0px) rotateX(0deg)",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 100%",
+            end: "top 30%",
+            scrub: true,
+          },
+        }
+      );
+    }
+  }, []);
   return (
     <div className="py-20 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
@@ -90,63 +119,75 @@ const GameDetailpage = () => {
               />
             </div>
           </div>
+          <div className="flex">
+            <AnimatedTitle title={"specitication"} containerClass="" />
+          </div>
 
           <div className="flex flex-col gap-4 justify-center items-center">
-            <div className="flex flex-col gap-8 max-w-2xl">
-              <div
-                className="flex flex-col gap-6 bg-black border border-gray-500 rounded-lg px-4 py-6 max-w-xs
+            <div className="flex gap-8 max-w-2xl">
+              <div className="flex">
+                <div
+                  className="flex flex-col gap-10 h-fit bg-black border border-gray-700 rounded-lg px-4 py-6 max-w-xs
               "
-              >
-                <span className="special-font text-white font-semibold text-4xl uppercase">
-                  Supported platform
-                </span>
-                <div className="flex flex-col gap-[2px] items-end">
-                  {gameDetail?.devices.map((device: any) => (
-                    <span className="font-general text-xs text-blue-50">
-                      {device},
-                    </span>
-                  ))}
+                >
+                  <span className="special-font text-white font-semibold text-4xl uppercase">
+                    Supported platform
+                  </span>
+                  <div className="flex flex-col gap-[2px] items-end">
+                    {gameDetail?.devices.map((device: any) => (
+                      <span className="font-general text-xs text-blue-50">
+                        {device},
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+              <div>
+                <div className="bg-yellow-300">
+                  <h4>{gameDetail.category}</h4>
+                </div>
+                <OnScrollUpCard
+                  containerRef={containerRef}
+                  style={"border bg-white rounded-lg p-4 "}
+                >
+                  <h4 className=" special-font text-white font-semibold">
+                    Minimum System Requirements
+                  </h4>
+                  <ul className="text-white mt-2 flex flex-col gap-2">
+                    {minimum ? (
+                      Object.entries(minimum).map(([key, value]) => (
+                        <li key={key} className="font-general">
+                          <strong className=" text-black ">
+                            {key.replace(/_/g, " ").toUpperCase()}:
+                          </strong>{" "}
+                          {value as string}
+                        </li>
+                      ))
+                    ) : (
+                      <li>No minimum requirements available.</li>
+                    )}
+                  </ul>
+                </OnScrollUpCard>
 
-              <div className="">
-                <h4 className=" special-font text-white font-semibold">
-                  Minimum System Requirements
-                </h4>
-                <ul className="text-white mt-2 flex flex-col gap-2">
-                  {minimum ? (
-                    Object.entries(minimum).map(([key, value]) => (
-                      <li key={key} className="font-general">
-                        <strong className=" text-black ">
-                          {key.replace(/_/g, " ").toUpperCase()}:
-                        </strong>{" "}
-                        {value as string}
-                      </li>
-                    ))
-                  ) : (
-                    <li>No minimum requirements available.</li>
-                  )}
-                </ul>
-              </div>
-
-              <div className="">
-                <h4 className=" special-font text-white font-semibold">
-                  Recommended System Requirements
-                </h4>
-                <ul className="text-black mt-2">
-                  {recommended ? (
-                    Object.entries(recommended).map(([key, value]) => (
-                      <li key={key} className="font-general">
-                        <strong className="text-white">
-                          {key.replace(/_/g, " ").toUpperCase()}:
-                        </strong>{" "}
-                        {value as string}
-                      </li>
-                    ))
-                  ) : (
-                    <li>No recommended requirements available.</li>
-                  )}
-                </ul>
+                <div className="">
+                  <h4 className=" special-font text-white font-semibold">
+                    Recommended System Requirements
+                  </h4>
+                  <ul className="text-black mt-2">
+                    {recommended ? (
+                      Object.entries(recommended).map(([key, value]) => (
+                        <li key={key} className="font-general">
+                          <strong className="text-white">
+                            {key.replace(/_/g, " ").toUpperCase()}:
+                          </strong>{" "}
+                          {value as string}
+                        </li>
+                      ))
+                    ) : (
+                      <li>No recommended requirements available.</li>
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
