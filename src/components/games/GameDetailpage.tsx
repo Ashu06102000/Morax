@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchGameById } from "../../db/db";
 
 import { Button } from "../genericComponents/Button";
@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/all";
 import AnimatedTitle from "../genericComponents/AnimatedTile";
 import OnScrollUpCard from "../genericComponents/OnScrollUpCard";
 import { gameDetails } from "../../interface/interface";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 const GameDetailpage = () => {
@@ -53,11 +54,12 @@ const GameDetailpage = () => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: "#clip",
-        start: "center center",
+        start: "top top",
         end: "+=800 center",
         scrub: 0.5,
         pin: true,
         pinSpacing: true,
+        once: false,
       },
     });
 
@@ -66,11 +68,11 @@ const GameDetailpage = () => {
       height: "100vh",
       borderRadius: 0,
     });
-    clipAnimation.to(".about-image", {
+    clipAnimation.to(".game_image", {
       duration: 1,
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
-  });
+  }, []);
   const [transformStyle, setTransformStyle] = useState({
     transform:
       "matrix3d(0.926405, -0.196135, 0, -0.0015721, -0.151135, 0.664844, 0, -0.0005899, 0, 0, 1, 0, -84.3395, 32.6317, 0, 1)",
@@ -99,6 +101,9 @@ const GameDetailpage = () => {
   return (
     <div className="py-40 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
+        <Link className="text-white flex gap-4 items-center" to="/games">
+          <FaArrowLeftLong /> Back
+        </Link>
         <div className="flex flex-col gap-4">
           <h2 className="font-zentry text-blue-50 text-[8rem]">
             {gameDetail?.name}
@@ -108,9 +113,9 @@ const GameDetailpage = () => {
           </p>
         </div>
 
-        <div className="flex gap-20 flex-col justify-between">
+        <div className="flex gap-20 flex-col mt-20 justify-between">
           <div className="h-dvh" id="clip">
-            <div className="mask-clip-path absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw]">
+            <div className="mask-clip-path game_image absolute left-1/2 top-0 z-20 h-[80vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[60vw] ">
               <img
                 className="absolute left-0 top-0 size-full object-cover"
                 src={gameDetail?.image}
@@ -135,7 +140,10 @@ const GameDetailpage = () => {
                     </h4>
                     <div className="flex flex-col gap-[2px] items-end">
                       {gameDetail?.devices.map((device: any) => (
-                        <span className="font-general text-xs text-blue-50">
+                        <span
+                          key={device}
+                          className="font-general text-xs text-blue-50"
+                        >
                           {device},
                         </span>
                       ))}
