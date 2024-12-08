@@ -11,7 +11,7 @@ const gamingData = [
   {
     id: "1",
     name: "God of War",
-    price: 49.99,
+    price: 4999.99,
     category: ["Action", "Adventure", "RPG", "3D"],
     stock: 10,
     image: "/img/games/god-of-war.jpg",
@@ -20,6 +20,7 @@ const gamingData = [
     isComingSoon: false,
     isFeatured: true,
     devices: ["PC", "Xbox", "Playstation"],
+    sale: 10,
     requirements: {
       minimum: {
         requires: "64-bit processor and operating system",
@@ -49,7 +50,7 @@ const gamingData = [
   {
     id: "2",
     name: "The Last of Us",
-    price: 59.99,
+    price: 5999.99,
     category: "Adventure",
     stock: 15,
     image: "/img/games/last-of-us.jpg",
@@ -82,7 +83,7 @@ const gamingData = [
   {
     id: "3",
     name: "Halo Infinite",
-    price: 69.99,
+    price: 6999.99,
     category: "Shooter",
     stock: 20,
     image: "/img/games/halo-infinite.jpg",
@@ -111,7 +112,7 @@ const gamingData = [
   {
     id: "4",
     name: "Elden Ring",
-    price: 59.99,
+    price: 5999.99,
     category: "RPG",
     stock: 25,
     image: "/img//games/elden-ring.jpg",
@@ -148,7 +149,7 @@ const gamingData = [
   {
     id: "5",
     name: "FIFA 24",
-    price: 39.99,
+    price: 3999.99,
     category: "Sports",
     stock: 30,
     image: "/img//games/fifa-24.jpg",
@@ -190,7 +191,7 @@ const gamingData = [
   {
     id: "6",
     name: "Cyberpunk 2077",
-    price: 29.99,
+    price: 2999.99,
     category: "RPG",
     stock: 8,
     image: "/img//games/cyberpunk-2077.jpg",
@@ -229,7 +230,7 @@ const gamingData = [
   {
     id: "7",
     name: "Red Dead Redemption 2",
-    price: 49.99,
+    price: 4999.99,
     category: "Adventure",
     stock: 12,
     image: "/img//games/red-dead-2.jpg",
@@ -266,7 +267,7 @@ const gamingData = [
   {
     id: "8",
     name: "Forza Horizon 5",
-    price: 69.99,
+    price: 6999.99,
     category: "Racing",
     stock: 18,
     image: "/img//games/forza-5.jpg",
@@ -297,7 +298,7 @@ const gamingData = [
   {
     id: "9",
     name: "Call of Duty: Modern Warfare 2",
-    price: 59.99,
+    price: 5999.99,
     category: "Shooter",
     stock: 22,
     image: "/img//games/cod-mw2.jpg",
@@ -336,7 +337,7 @@ const gamingData = [
   {
     id: "10",
     name: "Minecraft",
-    price: 19.99,
+    price: 1999.99,
     category: "Sandbox",
     stock: 50,
     image: "/img//games/minecraft.jpg",
@@ -383,7 +384,7 @@ const gamingConsoles = [
   {
     id: "1",
     name: "PlayStation 5",
-    price: 499.99,
+    price: 4999.99,
     category: "Console",
     stock: 50,
     image: "/img/consoles/ps5.jpg",
@@ -404,7 +405,7 @@ const gamingConsoles = [
   {
     id: "2",
     name: "Xbox Series X",
-    price: 499.99,
+    price: 4999.99,
     category: "Console",
     stock: 40,
     image: "/img/consoles/xbox-series-x.jpg",

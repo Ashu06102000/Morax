@@ -71,10 +71,31 @@ const GameDetailpage = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
   });
+  const [transformStyle, setTransformStyle] = useState({
+    transform:
+      "matrix3d(0.926405, -0.196135, 0, -0.0015721, -0.151135, 0.664844, 0, -0.0005899, 0, 0, 1, 0, -84.3395, 32.6317, 0, 1)",
+    transition: "transform 0.3s ease",
+  });
+
+  const handleMouseEnter = () => {
+    setTransformStyle({
+      transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+      transition: "transform 0.3s ease",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTransformStyle({
+      transform:
+        "matrix3d(0.926405, -0.196135, 0, -0.0015721, -0.151135, 0.664844, 0, -0.0005899, 0, 0, 1, 0, -84.3395, 32.6317, 0, 1)",
+      transition: "transform 0.3s ease",
+    });
+  };
   const miniRef = useRef<HTMLDivElement>(null);
   const supPlatRef = useRef<HTMLDivElement>(null);
   const recRef = useRef<HTMLDivElement>(null);
   const catRef = useRef<HTMLDivElement>(null);
+  const saleRef = useRef<HTMLDivElement>(null);
   return (
     <div className="py-40 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
@@ -133,7 +154,7 @@ const GameDetailpage = () => {
                       Object.entries(recommended).map(([key, value]) => (
                         <li
                           key={key}
-                          className="special-font text-base text-black uppercase"
+                          className="special-font text-sm text-black uppercase"
                         >
                           <strong className=" text-black">
                             {key.replace(/_/g, " ").toUpperCase()}:
@@ -160,7 +181,7 @@ const GameDetailpage = () => {
                       Object.entries(minimum).map(([key, value]) => (
                         <li
                           key={key}
-                          className="special-font text-base text-black uppercase"
+                          className="special-font text-sm text-black uppercase"
                         >
                           <strong className=" text-black">
                             {key.replace(/_/g, " ").toUpperCase()}:
@@ -175,10 +196,10 @@ const GameDetailpage = () => {
                 </OnScrollUpCard>
                 <OnScrollUpCard containerRef={catRef} style={""}>
                   <div
-                    className="flex flex-col gap-10 h-fit bg-yellow-300 border border-gray-700 rounded-lg px-4 py-6 max-w-xs w-fit
+                    className="flex flex-col gap-10 h-fit bg-black border border-gray-700 rounded-lg px-4 py-6 max-w-xs w-fit
               "
                   >
-                    <h4 className="special-font text-black font-semibold text-4xl uppercase">
+                    <h4 className="special-font text-white font-semibold text-4xl uppercase">
                       Category
                     </h4>
                     <div className="flex flex-col gap-[2px] items-end">
@@ -186,13 +207,32 @@ const GameDetailpage = () => {
                         return (
                           <span
                             key={cat}
-                            className="font-general text-xs text-black"
+                            className="font-general text-xs text-white"
                           >
                             {cat},
                           </span>
                         );
                       })}
                     </div>
+                  </div>
+                </OnScrollUpCard>
+                <OnScrollUpCard containerRef={saleRef} style={""}>
+                  <div
+                    className="flex flex-col gap-6 h-fit bg-yellow-300 border border-gray-700 rounded-lg px-4 py-6  min-w-[20em] w-fit 
+              "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <h4
+                      style={transformStyle}
+                      className="special-font text-black  font-semibold h-full text-[15rem] uppercase leading-none pro_total_sale"
+                    >
+                      <b>₹{gameDetail?.sale}M</b>
+                    </h4>
+
+                    <span className="font-general text-xs text-black text-right">
+                      Total Sale
+                    </span>
                   </div>
                 </OnScrollUpCard>
               </div>
@@ -202,7 +242,7 @@ const GameDetailpage = () => {
       </div>
       <div className="fixed bottom-10 left-2/4 flex gap-4 transform -translate-x-1/2 bg-white rounded-lg  p-2 items-center">
         <span className=" font-general text-black text-sm font-semibold">
-          Price: ${gameDetail?.price}
+          Price: ₹ {gameDetail?.price}
         </span>
         <Button
           title=" Buy Now"

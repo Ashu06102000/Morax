@@ -21,6 +21,7 @@ export interface gameDetails {
   isComingSoon?: boolean;
   isFeatured?: boolean;
   devices: string[];
+  sale?: number;
   requirements: {
     minimum: {
       requires: string;
