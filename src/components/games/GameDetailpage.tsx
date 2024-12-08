@@ -203,7 +203,7 @@ const GameDetailpage = () => {
                       Category
                     </h4>
                     <div className="flex flex-col gap-[2px] items-end">
-                      {gameDetail?.category.map((cat) => {
+                      {gameDetail?.category?.map((cat) => {
                         return (
                           <span
                             key={cat}

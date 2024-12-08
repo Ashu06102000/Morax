@@ -30,9 +30,15 @@ const Hero = () => {
   }, [loadedVideos]);
 
   const handleMiniVdClick = () => {
-    setHasClicked(true);
+    if (!hasClicked) {
+      setHasClicked(true);
 
-    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+      setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+
+      setTimeout(() => {
+        setHasClicked(false);
+      }, 1000);
+    }
   };
 
   useGSAP(

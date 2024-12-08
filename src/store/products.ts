@@ -51,7 +51,7 @@ const gamingData = [
     id: "2",
     name: "The Last of Us",
     price: 5999.99,
-    category: "Adventure",
+    category: ["Adventure", "Story", "Horror"],
     stock: 15,
     image: "/img/games/last-of-us.jpg",
     description:
@@ -84,7 +84,7 @@ const gamingData = [
     id: "3",
     name: "Halo Infinite",
     price: 6999.99,
-    category: "Shooter",
+    category: ["Shooter", "Free to play", "Multiplayer", "Singleplayer"],
     stock: 20,
     image: "/img/games/halo-infinite.jpg",
     description:
@@ -113,7 +113,7 @@ const gamingData = [
     id: "4",
     name: "Elden Ring",
     price: 5999.99,
-    category: "RPG",
+    category: ["RPG", "Open world", "3D", "Dark fantasy"],
     stock: 25,
     image: "/img//games/elden-ring.jpg",
     description:
@@ -150,7 +150,7 @@ const gamingData = [
     id: "5",
     name: "FIFA 24",
     price: 3999.99,
-    category: "Sports",
+    category: ["Sports", "Simulator", "Controller"],
     stock: 30,
     image: "/img//games/fifa-24.jpg",
     description:
@@ -192,7 +192,7 @@ const gamingData = [
     id: "6",
     name: "Cyberpunk 2077",
     price: 2999.99,
-    category: "RPG",
+    category: ["RPG", "Open world", "Sci-Fi", "Nudity"],
     stock: 8,
     image: "/img//games/cyberpunk-2077.jpg",
     description:
@@ -231,7 +231,7 @@ const gamingData = [
     id: "7",
     name: "Red Dead Redemption 2",
     price: 4999.99,
-    category: "Adventure",
+    category: ["Adventure", "Action", "Comedyo Open world", "Story"],
     stock: 12,
     image: "/img//games/red-dead-2.jpg",
     description:
@@ -268,7 +268,7 @@ const gamingData = [
     id: "8",
     name: "Forza Horizon 5",
     price: 6999.99,
-    category: "Racing",
+    category: ["Racing", "Open world", "Driving", "Multiplayer", "Co-op"],
     stock: 18,
     image: "/img//games/forza-5.jpg",
     description:
@@ -299,7 +299,7 @@ const gamingData = [
     id: "9",
     name: "Call of Duty: Modern Warfare 2",
     price: 5999.99,
-    category: "Shooter",
+    category: ["Shooter", "Action", "Multplayer", "FPS"],
     stock: 22,
     image: "/img//games/cod-mw2.jpg",
     description:
@@ -338,7 +338,7 @@ const gamingData = [
     id: "10",
     name: "Minecraft",
     price: 1999.99,
-    category: "Sandbox",
+    category: ["Sandbox", "Multiplayer", "Action", "Strategy"],
     stock: 50,
     image: "/img//games/minecraft.jpg",
     description:
