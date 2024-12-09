@@ -5,6 +5,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../genericComponents/Button";
 import VideoPreview from "../genericComponents/Videopreview";
+import PageTransition from "../genericComponents/PageTransition";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,13 +111,14 @@ const Hero = () => {
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
       {loading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
+        // <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+        //   <div className="three-body">
+        //     <div className="three-body__dot"></div>
+        //     <div className="three-body__dot"></div>
+        //     <div className="three-body__dot"></div>
+        //   </div>
+        // </div>
+        <PageTransition />
       )}
 
       <div

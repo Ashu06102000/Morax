@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
-const PageTransition = ({ children }: { children: React.ReactNode }) => {
+const PageTransition = ({ children }: { children?: React.ReactNode }) => {
   const location = useLocation();
   const transitionRef = useRef(null);
   const lettersRef = useRef<Array<HTMLElement | null>>([]);
