@@ -3,7 +3,7 @@ import React from "react";
 import Footer from "./components/genericComponents/Footer";
 import NavBar from "./components/genericComponents/Navbar";
 import HomeLayout from "./components/Home/HomeLayout";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import PrductsPage from "./components/products/PrductsPage";
 import ProtectedPage from "./components/auth/ProtectedPage";
@@ -16,6 +16,8 @@ import Profile from "./components/profile/Profile";
 import GameDetailpage from "./components/games/GameDetailpage";
 
 const App: React.FC = () => {
+  const location = useLocation();
+  const shouldHideFooter = location.pathname === "/products";
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
@@ -31,8 +33,7 @@ const App: React.FC = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/games/:id" element={<GameDetailpage />} />
       </Routes>
-
-      <Footer />
+      {!shouldHideFooter && <Footer />}
     </main>
   );
 };

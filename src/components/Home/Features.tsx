@@ -1,5 +1,6 @@
 import { useState, useRef, ReactNode, ReactElement } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 export const BentoTilt = ({
   children,
@@ -49,11 +50,13 @@ export const BentoCard = ({
   title,
   description,
   isComingSoon,
+  links,
 }: {
   src: string;
   title: ReactElement;
   description: string;
   isComingSoon: boolean;
+  links: string;
 }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
@@ -96,17 +99,19 @@ export const BentoCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
+            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-blue-50 px-5 py-2 text-xs uppercase text-black"
           >
             <div
-              className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+              className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 "
               style={{
                 opacity: hoverOpacity,
-                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
+                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px,rgba(0, 0, 0, 0.2), transparent 50%)`,
               }}
             />
             <TiLocationArrow className="relative z-20" />
-            <p className="relative z-20">coming soon</p>
+            <Link to={links} className="relative z-20">
+              Explore now
+            </Link>
           </div>
         )}
       </div>
@@ -133,11 +138,12 @@ const Features = () => (
           src="videos/feature-1.mp4"
           title={
             <>
-              radia<b>n</b>t
+              Gam<b>in</b>g
             </>
           }
           description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
           isComingSoon
+          links="/products"
         />
       </BentoTilt>
 
@@ -147,11 +153,12 @@ const Features = () => (
             src="videos/feature-2.mp4"
             title={
               <>
-                zig<b>m</b>a
+                contr<b>oll</b>er
               </>
             }
             description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
             isComingSoon
+            links="/controller"
           />
         </BentoTilt>
 
@@ -160,11 +167,12 @@ const Features = () => (
             src="videos/feature-3.mp4"
             title={
               <>
-                n<b>e</b>xus
+                c<b>a</b>rds
               </>
             }
             description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
             isComingSoon
+            links="/cards"
           />
         </BentoTilt>
 
@@ -173,11 +181,12 @@ const Features = () => (
             src="videos/feature-4.mp4"
             title={
               <>
-                az<b>u</b>l
+                nf<b>t</b>
               </>
             }
             description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
             isComingSoon
+            links="/nfts"
           />
         </BentoTilt>
 
