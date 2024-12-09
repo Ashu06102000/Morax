@@ -30,8 +30,8 @@ const GameCardList = () => {
           }
 
           return (
-            <Link
-              to={`/games/${games.id}`}
+            <a
+              href={`/games/${games.id}`}
               style={{ backgroundImage }}
               className="border border-gray-300 bg-cover bg-no-repeat shadow-md flex-col flex h-[400px] bg-center"
             >
@@ -40,7 +40,7 @@ const GameCardList = () => {
                   {games.name}
                 </h3>
               </div>
-            </Link>
+            </a>
           );
         })}
       </div>

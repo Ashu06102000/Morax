@@ -53,7 +53,7 @@ const GameDetailpage = () => {
   useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
-        trigger: "#clip",
+        trigger: "#clip_gd",
         start: "top top",
         end: "+=800 center",
         scrub: 0.5,
@@ -63,7 +63,7 @@ const GameDetailpage = () => {
       },
     });
 
-    clipAnimation.to(".mask-clip-path", {
+    clipAnimation.to(".mask-clip-gd", {
       width: "100vw",
       height: "100vh",
       borderRadius: 0,
@@ -104,6 +104,15 @@ const GameDetailpage = () => {
         <Link className="text-white flex gap-4 items-center" to="/games">
           <FaArrowLeftLong /> Back
         </Link>
+        <div className="h-dvh" id="clip_gd">
+          <div className="mask-clip-gd game_image absolute left-1/2 top-0 z-20 h-[80vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[60vw] ">
+            <img
+              className="absolute left-0 top-0 size-full object-cover"
+              src={gameDetail?.image}
+              alt={`Image of ${gameDetail?.name}`}
+            />
+          </div>
+        </div>
         <div className="flex flex-col gap-4">
           <h2 className="font-zentry text-blue-50 text-[8rem]">
             {gameDetail?.name}
@@ -114,15 +123,6 @@ const GameDetailpage = () => {
         </div>
 
         <div className="flex gap-20 flex-col mt-20 justify-between">
-          <div className="h-dvh" id="clip">
-            <div className="mask-clip-path game_image absolute left-1/2 top-0 z-20 h-[80vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[60vw] ">
-              <img
-                className="absolute left-0 top-0 size-full object-cover"
-                src={gameDetail?.image}
-                alt={`Image of ${gameDetail?.name}`}
-              />
-            </div>
-          </div>
           <div className="flex">
             <AnimatedTitle title={"specitication"} containerClass="" />
           </div>
@@ -226,7 +226,7 @@ const GameDetailpage = () => {
                 </OnScrollUpCard>
                 <OnScrollUpCard containerRef={saleRef} style={""}>
                   <div
-                    className="flex flex-col gap-6 h-fit bg-yellow-300 border border-gray-700 rounded-lg px-4 py-6  min-w-[20em] w-fit 
+                    className="flex flex-col items-end gap-6 h-fit bg-yellow-300 border border-gray-700 rounded-lg px-4 py-6  min-w-[25em] w-fit 
               "
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
