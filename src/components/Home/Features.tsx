@@ -99,13 +99,13 @@ export const BentoCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-blue-50 px-5 py-2 text-xs uppercase text-black"
+            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white"
           >
             <div
-              className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 "
+              className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
               style={{
                 opacity: hoverOpacity,
-                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px,rgba(0, 0, 0, 0.2), transparent 50%)`,
+                background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
               }}
             />
             <TiLocationArrow className="relative z-20" />
