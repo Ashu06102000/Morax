@@ -30,9 +30,9 @@ const ConsoleCard = () => {
           }
           console.log(data.id, "ds");
           return (
-            <a
+            <Link
               key={data.id}
-              href={`/consoles/${data.id}`}
+              to={`/consoles/${data.id}`}
               style={{ backgroundImage }}
               className="border border-gray-300 bg-cover bg-no-repeat shadow-md flex-col flex h-[400px] bg-center"
             >
@@ -41,7 +41,7 @@ const ConsoleCard = () => {
                   {data.name}
                 </h3>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>
