@@ -57,6 +57,7 @@ const gamingData = [
     description:
       "Experience the emotional storytelling and unforgettable characters in The Last of Us, winner of over 200 Game of the Year awards.",
     devices: ["PC", "PlayStation 4", "Xbox One", "Google Stadia"],
+    sale: 5,
     requirements: {
       minimum: {
         requires: "64-bit processor and operating system",
@@ -90,6 +91,7 @@ const gamingData = [
     description:
       "When all hope is lost and humanity’s fate hangs in the balance, the Master Chief is ready to confront the most ruthless foe he’s ever faced. Step inside the armor of humanity’s greatest hero to experience an epic open-world adventure and explore the massive scale of the Halo ring.",
     devices: ["PC", "Xbox One", "Xbox Series X|S"],
+    sale: 2,
     requirements: {
       minimum: {
         processor: "AMD Ryzen 5 1600 or Intel i5-4440",
@@ -125,6 +127,7 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S",
     ],
+    sale: 8,
     requirements: {
       minimum: {
         processor: "Intel Core i5-8400 or AMD Ryzen 3 3300X",
@@ -163,6 +166,7 @@ const gamingData = [
       "Xbox Series X|S",
       "Nintendo Switch",
     ],
+    sale: 12,
     requirements: {
       minimum: {
         processor: "AMD Ryzen 5 1600 or Intel Core i5 6600k",
@@ -205,6 +209,7 @@ const gamingData = [
       "Xbox Series X|S",
       "Google Stadia",
     ],
+    sale: 10,
     requirements: {
       minimum: {
         processor: "Core i7-6700 or Ryzen 5 1600",
@@ -243,6 +248,7 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S (via backward compatibility)",
     ],
+    sale: 14,
     requirements: {
       minimum: {
         processor: "Intel® Core™ i5-2500K / AMD FX-6300",
@@ -274,6 +280,7 @@ const gamingData = [
     description:
       "Forza Horizon 5 is a racing video game developed by Playground Games and published by Microsoft Studios. It is the fifth installment in the Forza Horizon series.",
     devices: ["PC", "Xbox One", "Xbox Series X|S"],
+    sale: 6,
     requirements: {
       minimum: {
         processor: "Intel i5-4460 or AMD Ryzen 3 1200",
@@ -311,6 +318,7 @@ const gamingData = [
       "Xbox One",
       "Xbox Series X|S",
     ],
+    sale: 18,
     requirements: {
       minimum: {
         processor: "Intel Core i3-6100 / Core i5-2500K or AMD Ryzen 3 1200",
@@ -353,6 +361,7 @@ const gamingData = [
       "Mobile (iOS & Android)",
       "Other legacy platforms",
     ],
+    sale: 12,
     requirements: {
       minimum: {
         processor: "Core i5 2.8GHz or equivalent",
@@ -385,14 +394,15 @@ const gamingConsoles = [
     id: "1",
     name: "PlayStation 5",
     price: 4999.99,
-    category: "Console",
+    category: ["Console"],
     stock: 50,
     image: "/img/consoles/ps5.jpg",
     description:
       "Experience lightning-fast loading with an ultra-high-speed SSD and deeper immersion with haptic feedback and adaptive triggers.",
     isComingSoon: false,
-    isFeatured: true,
+    isFeatured: false,
     devices: ["PlayStation Network", "Blu-ray"],
+    sale: 1,
     requirements: {
       minimum: {
         requires: "4K TV or Monitor (optional for optimal experience)",
@@ -406,14 +416,15 @@ const gamingConsoles = [
     id: "2",
     name: "Xbox Series X",
     price: 4999.99,
-    category: "Console",
+    category: ["Console"],
     stock: 40,
     image: "/img/consoles/xbox-series-x.jpg",
     description:
       "The most powerful Xbox ever with true 4K gaming, up to 120 FPS, and 1TB of custom SSD for faster load times.",
     isComingSoon: false,
     isFeatured: true,
-    devices: ["Xbox Game Pass", "Blu-ray"],
+    devices: ["false Game Pass", "Blu-ray"],
+    sale: 1,
     requirements: {
       minimum: {
         requires: "4K TV or Monitor (optional for optimal experience)",
@@ -428,7 +439,7 @@ const gamingConsoles = [
     id: "3",
     name: "Nintendo Switch OLED",
     price: 349.99,
-    category: "Console",
+    category: ["Console"],
     stock: 30,
     image: "/img/consoles/switch-oled.jpg",
     description:
@@ -436,6 +447,7 @@ const gamingConsoles = [
     isComingSoon: false,
     isFeatured: true,
     devices: ["Nintendo eShop", "Cartridges"],
+    sale: 3,
     requirements: {
       minimum: {
         requires: "Internet for updates and eShop access",
@@ -449,7 +461,7 @@ const gamingConsoles = [
     id: "4",
     name: "Steam Deck",
     price: 399.99,
-    category: "Handheld",
+    category: ["Handheld"],
     stock: 25,
     image: "/img/consoles/steam-deck.jpg",
     description:
@@ -457,6 +469,7 @@ const gamingConsoles = [
     isComingSoon: false,
     isFeatured: false,
     devices: ["SteamOS", "PC"],
+    sale: 2,
     requirements: {
       minimum: {
         requires: "Steam account",
@@ -470,7 +483,7 @@ const gamingConsoles = [
     id: "5",
     name: "PlayStation 4 Pro",
     price: 399.99,
-    category: "Console",
+    category: ["Console"],
     stock: 20,
     image: "/img/consoles/ps4-pro.jpg",
     description:
@@ -478,6 +491,7 @@ const gamingConsoles = [
     isComingSoon: false,
     isFeatured: false,
     devices: ["PlayStation Network", "Blu-ray"],
+    sale: 2,
     requirements: {
       minimum: {
         requires: "4K TV for optimal experience",
@@ -491,14 +505,15 @@ const gamingConsoles = [
     id: "6",
     name: "Xbox Series S",
     price: 299.99,
-    category: "Console",
+    category: ["Console"],
     stock: 35,
     image: "/img/consoles/xbox-series-s.jpg",
     description:
       "Next-gen gaming with a compact design, 1440p resolution, and up to 120 FPS performance.",
     isComingSoon: false,
-    isFeatured: true,
+    isFeatured: false,
     devices: ["Xbox Game Pass", "Digital-only"],
+    sale: 1,
     requirements: {
       minimum: {
         requires: "HD TV or Monitor",
@@ -512,7 +527,7 @@ const gamingConsoles = [
     id: "7",
     name: "Nintendo Switch Lite",
     price: 199.99,
-    category: "Handheld",
+    category: ["Handheld"],
     stock: 30,
     image: "/img/consoles/switch-lite.jpg",
     description:
@@ -520,6 +535,7 @@ const gamingConsoles = [
     isComingSoon: false,
     isFeatured: false,
     devices: ["Nintendo eShop", "Cartridges"],
+    sale: 1,
     requirements: {
       minimum: {
         requires: "Internet for updates and eShop access",
@@ -533,14 +549,15 @@ const gamingConsoles = [
     id: "8",
     name: "Meta Quest 2",
     price: 299.99,
-    category: "VR",
+    category: ["VR"],
     stock: 15,
     image: "/img/consoles/meta-quest-2.jpg",
     description:
       "An all-in-one VR headset with no PC required, offering immersive gaming and social experiences.",
     isComingSoon: false,
-    isFeatured: true,
+    isFeatured: false,
     devices: ["Oculus Store"],
+    sale: 2,
     requirements: {
       minimum: {
         requires: "Oculus account",
@@ -554,7 +571,7 @@ const gamingConsoles = [
     id: "9",
     name: "Valve Index",
     price: 999.99,
-    category: "VR",
+    category: ["VR"],
     stock: 10,
     image: "/img/consoles/valve-index.jpg",
     description:
@@ -562,6 +579,7 @@ const gamingConsoles = [
     isComingSoon: false,
     isFeatured: false,
     devices: ["SteamVR"],
+    sale: 3,
     requirements: {
       minimum: {
         requires: "High-end PC",
@@ -575,14 +593,15 @@ const gamingConsoles = [
     id: "10",
     name: "PlayStation VR2",
     price: 549.99,
-    category: "VR",
+    category: ["VR"],
     stock: 10,
     image: "/img/consoles/ps-vr2.jpg",
     description:
       "Next-gen VR experience with stunning visuals and adaptive triggers.",
     isComingSoon: false,
-    isFeatured: true,
+    isFeatured: false,
     devices: ["PlayStation Network"],
+    sale: 2,
     requirements: {
       minimum: {
         requires: "PlayStation 5",
@@ -609,3 +628,4 @@ const seedConsoleData = async () => {
   }
   console.log("Console data seeded!");
 };
+seedConsoleData();

@@ -22,18 +22,20 @@ const GameCardList = () => {
   return (
     <div className="w-full flex flex-wrap relative gap-2">
       <GameFeature gamesData={featureGames} />
-      <div className="grid grid-cols-4 gap-2 w-full">
+      <div className="flex flex-wrap gap-2 w-full">
         {games?.map((games) => {
           const backgroundImage = `url('${games.image}')`;
-          if (games.isFeatured) {
-            return;
-          }
+          // if (games.isFeatured) {
+          //   return;
+          // }
 
           return (
             <a
               href={`/games/${games.id}`}
               style={{ backgroundImage }}
-              className="border border-gray-300 bg-cover bg-no-repeat shadow-md flex-col flex h-[400px] bg-center"
+              className={`border border-gray-300 bg-cover bg-no-repeat shadow-md flex-col flex h-[400px] bg-center  ${
+                games.isFeatured ? "w-full" : "w-[25%]"
+              }`}
             >
               <div className="p-2 text-center h-full flex flex-col justify-end bg-[#0000002b] transition-all duration-500 ease-in-out hover:bg-[#00000059]">
                 <h3 className="font-semibold font-zentry text-4xl text-blue-50">

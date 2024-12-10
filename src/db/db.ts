@@ -1,8 +1,8 @@
 import { openDB } from "idb";
-import { GamingData } from "../interface/interface";
+import { ConsoleData, GamingData } from "../interface/interface";
 
 const initDB = async () => {
-  return openDB("userDB", 4, {
+  return openDB("userDB", 5, {
     upgrade(db) {
       if (!db.objectStoreNames.contains("users")) {
         db.createObjectStore("users", {
@@ -49,13 +49,12 @@ export const saveConsolesData = async (console: any) => {
   const tx = db.transaction("consoles", "readwrite");
   await tx.store.put(console);
   await tx.done;
-  console.log("Console data saved to IndexedDB");
 };
 
 export const fetchAllGames = async () => {
   const db = await initDB();
   const games = await db.getAll("games");
-  console.log(games);
+
   return games as GamingData[];
 };
 
@@ -71,8 +70,8 @@ export const fetchGameById = async (id: string) => {
   return game;
 };
 
-export const fetchConsoonsById = async (id: string) => {
+export const fetchAllConsoles = async () => {
   const db = await initDB();
-  const console = await db.get("consoles", id);
-  return console;
+  const consoles = await db.getAll("consoles");
+  return consoles as ConsoleData[];
 };
