@@ -13,7 +13,6 @@ const GameCardList = () => {
     };
     fetchGames();
   }, []);
-  console.log(games);
 
   const featureGames = games?.filter((data) => {
     return data.isFeatured;

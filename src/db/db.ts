@@ -28,7 +28,6 @@ export const saveUserData = async (userId: string, data: any) => {
   const tx = db.transaction("users", "readwrite");
   await tx.store.put({ userId, ...data });
   await tx.done;
-  console.log("Data saved to IndexedDB");
 };
 
 export const fetchUserData = async (userId: string) => {
@@ -42,7 +41,6 @@ export const saveGameData = async (game: any) => {
   const tx = db.transaction("games", "readwrite");
   await tx.store.put(game);
   await tx.done;
-  console.log("Game data saved to IndexedDB");
 };
 export const saveConsolesData = async (console: any) => {
   const db = await initDB();

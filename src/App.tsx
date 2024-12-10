@@ -15,6 +15,8 @@ import { Nft } from "./components/nft/Nft";
 import Profile from "./components/profile/Profile";
 import GameDetailpage from "./components/games/GameDetailpage";
 import ConsoleDetailPage from "./components/console/ConsoleDetailPage";
+import Buy from "./components/Buy/Buy";
+import CartPage from "./components/Buy/Cartpage";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -24,7 +26,7 @@ const App: React.FC = () => {
       <NavBar />
 
       <Routes>
-        <Route path="/protected" element={<ProtectedPage />} />;
+        <Route path="/protected" element={<ProtectedPage />} />
         <Route path="/" element={<HomeLayout />} />
         <Route path="/products" element={<PrductsPage />} />
         <Route path="/games" element={<Games />} />
@@ -32,6 +34,8 @@ const App: React.FC = () => {
         <Route path="/cards" element={<GamingCards />} />
         <Route path="/nft" element={<Nft />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/buy" element={<Buy />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/games/:id" element={<GameDetailpage />} />
         <Route path="/consoles/:id" element={<ConsoleDetailPage />} />
       </Routes>

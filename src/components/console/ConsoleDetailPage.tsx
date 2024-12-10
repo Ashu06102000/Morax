@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchConsoleById, fetchGameById } from "../../db/db";
 
 import { Button } from "../genericComponents/Button";
@@ -10,18 +10,18 @@ import AnimatedTitle from "../genericComponents/AnimatedTile";
 import OnScrollUpCard from "../genericComponents/OnScrollUpCard";
 import { ConsoleData } from "../../interface/interface";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useCart } from "../../store/store";
 
 gsap.registerPlugin(ScrollTrigger);
 const ConsoleDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [consoleDetail, setConsoleDetail] = useState<ConsoleData>();
-  console.log(id, "ss");
+
   useEffect(() => {
     const fetchDetails = async () => {
       if (id) {
         try {
           const response = await fetchConsoleById(id);
-          console.log(response, "successhik");
           setConsoleDetail(response);
         } catch (error) {
           console.error("Error fetching consoles details:", error);
@@ -98,6 +98,18 @@ const ConsoleDetailPage = () => {
   const recRef = useRef<HTMLDivElement>(null);
   const catRef = useRef<HTMLDivElement>(null);
   const saleRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const addToCart = useCart((state) => state.addToCart);
+
+  const handleBuyNow = (consoleDetail: any) => {
+    addToCart({
+      id: consoleDetail?.id,
+      price: consoleDetail?.price,
+      name: consoleDetail?.name,
+    });
+    navigate("/cart");
+  };
 
   return (
     <div className="py-40 bg-no-repeat bg-black relative bg-cover w-full">
@@ -151,31 +163,6 @@ const ConsoleDetailPage = () => {
                     </div>
                   </div>
                 </OnScrollUpCard>
-                {/* <OnScrollUpCard
-                  containerRef={recRef}
-                  style={"border bg-white rounded-lg p-4 gap-10 flex flex-col "}
-                >
-                  <h4 className="special-font text-black font-semibold text-4xl uppercase">
-                    Recommended System Requirements
-                  </h4>
-                  <ul className="text-white mt-2 flex flex-col gap-2">
-                    {recommended ? (
-                      Object.entries(recommended).map(([key, value]) => (
-                        <li
-                          key={key}
-                          className="special-font text-sm text-black uppercase"
-                        >
-                          <strong className=" text-black">
-                            {key.replace(/_/g, " ").toUpperCase()}:
-                          </strong>{" "}
-                          {value as string}
-                        </li>
-                      ))
-                    ) : (
-                      <li>No recommended requirements available.</li>
-                    )}
-                  </ul>
-                </OnScrollUpCard> */}
               </div>
               <div className="flex flex-col gap-8">
                 <OnScrollUpCard
@@ -253,15 +240,17 @@ const ConsoleDetailPage = () => {
         <span className=" font-general text-black text-sm font-semibold">
           Price: ₹ {consoleDetail?.price}
         </span>
-        <Button
-          title=" Buy Now"
-          containerClass="bg-black text-white"
-          onMouseEnter={onMouseEnter}
-          btnRef={btnRef}
-          onMouseLeave={onMouseLeave}
-          btnAudio={true}
-          link="/products"
-        />
+        <div onClick={() => handleBuyNow(consoleDetail)}>
+          <Button
+            title=" Buy Now"
+            containerClass="bg-black text-white"
+            onMouseEnter={onMouseEnter}
+            btnRef={btnRef}
+            onMouseLeave={onMouseLeave}
+            btnAudio={true}
+            cusAudio="/audio/clickdbuy.mp3"
+          />
+        </div>
       </div>
     </div>
   );

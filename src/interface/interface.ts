@@ -81,3 +81,16 @@ export interface gameDetails {
     };
   };
 }
+
+export interface CartState {
+  cart: CartItem[];
+  setCart: (cart: CartItem[]) => void;
+  addToCart: (item: CartItem) => void;
+  clearCart: () => void;
+  removeCartItem: (item: CartItem) => void;
+}
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+}

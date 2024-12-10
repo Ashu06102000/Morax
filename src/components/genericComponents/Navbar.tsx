@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { Button } from "./Button";
 import gsap from "gsap";
-import { useAudioStore } from "../../store/store";
+import { useAudioStore, useCart } from "../../store/store";
 import { Link } from "react-router-dom";
 import ToggleMenu from "./ToggleMenu";
 import { FaShoppingBag } from "react-icons/fa";
@@ -21,6 +21,7 @@ const NavBar = () => {
   const navItemRef = useRef(null);
 
   const { audio, setAudio }: any = useAudioStore();
+  const { cart } = useCart();
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
@@ -118,9 +119,13 @@ const NavBar = () => {
                 </a>
               ))}
             </div>
-            <span>
+            <Link className="relative" to={"/cart"}>
+              {cart.length > 0 && (
+                <span className="absolute top-0 -right-1 text-black bg-red-500 rounded-full text-[6px] p-1"></span>
+              )}
+
               <FaShoppingBag color="white" />
-            </span>
+            </Link>
 
             <div className="flex gap-2">
               <ToggleMenu />
@@ -130,6 +135,7 @@ const NavBar = () => {
                 id="audio-button-main"
               >
                 <audio
+                  autoPlay
                   ref={audioElementRef}
                   className="hidden"
                   src="/audio/music_main.mp3"

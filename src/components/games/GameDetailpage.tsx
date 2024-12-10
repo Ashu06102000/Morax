@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchGameById } from "../../db/db";
 
 import { Button } from "../genericComponents/Button";
@@ -10,6 +10,7 @@ import AnimatedTitle from "../genericComponents/AnimatedTile";
 import OnScrollUpCard from "../genericComponents/OnScrollUpCard";
 import { gameDetails } from "../../interface/interface";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useCart } from "../../store/store";
 
 gsap.registerPlugin(ScrollTrigger);
 const GameDetailpage = () => {
@@ -21,7 +22,7 @@ const GameDetailpage = () => {
       if (id) {
         try {
           const response = await fetchGameById(id);
-          console.log(response, "successhik");
+
           setGameDetail(response);
         } catch (error) {
           console.error("Error fetching game details:", error);
@@ -98,6 +99,18 @@ const GameDetailpage = () => {
   const recRef = useRef<HTMLDivElement>(null);
   const catRef = useRef<HTMLDivElement>(null);
   const saleRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const addToCart = useCart((state) => state.addToCart);
+
+  const handleBuyNow = (gameDetail: any) => {
+    addToCart({
+      id: gameDetail?.id,
+      price: gameDetail?.price,
+      name: gameDetail?.name,
+    });
+    navigate("/cart");
+  };
   return (
     <div className="py-40 bg-no-repeat bg-black relative bg-cover w-full">
       <div className="h-full justify-between rounded-lg max-w-screen-2xl mx-auto flex flex-col gap-20">
@@ -252,15 +265,17 @@ const GameDetailpage = () => {
         <span className=" font-general text-black text-sm font-semibold">
           Price: ₹ {gameDetail?.price}
         </span>
-        <Button
-          title=" Buy Now"
-          containerClass="bg-black text-white"
-          onMouseEnter={onMouseEnter}
-          btnRef={btnRef}
-          onMouseLeave={onMouseLeave}
-          btnAudio={true}
-          link="/products"
-        />
+        <div onClick={() => handleBuyNow(gameDetail)}>
+          <Button
+            title=" Buy Now"
+            containerClass="bg-black text-white"
+            onMouseEnter={onMouseEnter}
+            btnRef={btnRef}
+            onMouseLeave={onMouseLeave}
+            btnAudio={true}
+            cusAudio="/audio/clickdbuy.mp3"
+          />
+        </div>
       </div>
     </div>
   );

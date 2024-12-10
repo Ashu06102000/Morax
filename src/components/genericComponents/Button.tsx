@@ -12,6 +12,7 @@ export const Button = ({
   onMouseLeave = () => {},
   btnAudio,
   link,
+  cusAudio,
 }: {
   title: string;
   id?: string;
@@ -23,6 +24,7 @@ export const Button = ({
   onMouseLeave?: () => void;
   btnAudio?: boolean;
   link?: string;
+  cusAudio?: string;
 }) => {
   const { audio }: any = useAudioStore();
 
@@ -37,13 +39,15 @@ export const Button = ({
 
   const onClickedAudio = () => {
     if (btnAudio && audio) {
-      const clickedAudio = new Audio("/audio/btnClicked.mp3");
+      const clickedAudio = new Audio(
+        cusAudio ? cusAudio : "/audio/btnClicked.mp3"
+      );
       clickedAudio.play().catch((error) => {
         console.error("Audio play error:", error);
       });
     }
   };
-  console.log(containerClass);
+
   const ButtonContent = (
     <button
       id={id}

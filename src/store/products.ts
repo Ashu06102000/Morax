@@ -391,7 +391,7 @@ const gamingData = [
 
 const gamingConsoles = [
   {
-    id: "1",
+    id: "11",
     name: "PlayStation 5",
     price: 49999,
     category: ["Console"],
@@ -413,7 +413,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "2",
+    id: "12",
     name: "Xbox Series X",
     price: 54999,
     category: ["Console"],
@@ -436,7 +436,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "3",
+    id: "13",
     name: "Nintendo Switch OLED",
     price: 35449,
     category: ["Console"],
@@ -458,7 +458,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "4",
+    id: "14",
     name: "Steam Deck",
     price: 45399,
     category: ["Handheld"],
@@ -480,7 +480,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "5",
+    id: "15",
     name: "PlayStation 4 Pro",
     price: 32399,
     category: ["Console"],
@@ -502,7 +502,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "6",
+    id: "16",
     name: "Xbox Series S",
     price: 52299,
     category: ["Console"],
@@ -524,7 +524,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "7",
+    id: "17",
     name: "Nintendo Switch Lite",
     price: 49199,
     category: ["Handheld"],
@@ -546,7 +546,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "8",
+    id: "18",
     name: "Meta Quest 2",
     price: 53299.99,
     category: ["VR"],
@@ -568,7 +568,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "9",
+    id: "19",
     name: "Valve Index",
     price: 35499,
     category: ["VR"],
@@ -590,7 +590,7 @@ const gamingConsoles = [
     },
   },
   {
-    id: "10",
+    id: "20",
     name: "PlayStation VR2",
     price: 54999,
     category: ["VR"],
@@ -617,7 +617,6 @@ const seedGamingData = async () => {
   for (const game of gamingData) {
     await saveGameData(game);
   }
-  console.log("Gaming data seeded!");
 };
 
 seedGamingData();
@@ -626,6 +625,5 @@ const seedConsoleData = async () => {
   for (const console of gamingConsoles) {
     await saveConsolesData(console);
   }
-  console.log("Console data seeded!");
 };
 seedConsoleData();
