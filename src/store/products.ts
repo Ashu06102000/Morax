@@ -393,10 +393,10 @@ const gamingConsoles = [
   {
     id: "1",
     name: "PlayStation 5",
-    price: 4999.99,
+    price: 49999,
     category: ["Console"],
     stock: 50,
-    image: "/img/consoles/ps5.jpg",
+    image: "/img/console/ps5.webp",
     description:
       "Experience lightning-fast loading with an ultra-high-speed SSD and deeper immersion with haptic feedback and adaptive triggers.",
     isComingSoon: false,
@@ -415,10 +415,10 @@ const gamingConsoles = [
   {
     id: "2",
     name: "Xbox Series X",
-    price: 4999.99,
+    price: 54999,
     category: ["Console"],
     stock: 40,
-    image: "/img/consoles/xbox-series-x.jpg",
+    image: "/img/console/xboxseiesx.png",
     description:
       "The most powerful Xbox ever with true 4K gaming, up to 120 FPS, and 1TB of custom SSD for faster load times.",
     isComingSoon: false,
@@ -438,10 +438,10 @@ const gamingConsoles = [
   {
     id: "3",
     name: "Nintendo Switch OLED",
-    price: 349.99,
+    price: 35449,
     category: ["Console"],
     stock: 30,
-    image: "/img/consoles/switch-oled.jpg",
+    image: "/img/console/nintendoswitcholed.avif",
     description:
       "A hybrid console with a stunning 7-inch OLED display, improved audio, and enhanced handheld mode.",
     isComingSoon: false,
@@ -460,10 +460,10 @@ const gamingConsoles = [
   {
     id: "4",
     name: "Steam Deck",
-    price: 399.99,
+    price: 45399,
     category: ["Handheld"],
     stock: 25,
-    image: "/img/consoles/steam-deck.jpg",
+    image: "/img/console/steamoled.png",
     description:
       "A powerful handheld PC that brings Steam games to your fingertips with AMD Zen 2 and RDNA 2 technology.",
     isComingSoon: false,
@@ -482,10 +482,10 @@ const gamingConsoles = [
   {
     id: "5",
     name: "PlayStation 4 Pro",
-    price: 399.99,
+    price: 32399,
     category: ["Console"],
     stock: 20,
-    image: "/img/consoles/ps4-pro.jpg",
+    image: "/img/console/ps4pro.webp",
     description:
       "Enhanced performance with 4K gaming and HDR compatibility for an immersive experience.",
     isComingSoon: false,
@@ -504,10 +504,10 @@ const gamingConsoles = [
   {
     id: "6",
     name: "Xbox Series S",
-    price: 299.99,
+    price: 52299,
     category: ["Console"],
     stock: 35,
-    image: "/img/consoles/xbox-series-s.jpg",
+    image: "/img/console/xboxseiess.png",
     description:
       "Next-gen gaming with a compact design, 1440p resolution, and up to 120 FPS performance.",
     isComingSoon: false,
@@ -526,10 +526,10 @@ const gamingConsoles = [
   {
     id: "7",
     name: "Nintendo Switch Lite",
-    price: 199.99,
+    price: 49199,
     category: ["Handheld"],
     stock: 30,
-    image: "/img/consoles/switch-lite.jpg",
+    image: "/img/console/nentendilite.avif",
     description:
       "A compact, lightweight handheld console perfect for gaming on the go.",
     isComingSoon: false,
@@ -548,10 +548,10 @@ const gamingConsoles = [
   {
     id: "8",
     name: "Meta Quest 2",
-    price: 299.99,
+    price: 53299.99,
     category: ["VR"],
     stock: 15,
-    image: "/img/consoles/meta-quest-2.jpg",
+    image: "/img/console/metaquest2.webp",
     description:
       "An all-in-one VR headset with no PC required, offering immersive gaming and social experiences.",
     isComingSoon: false,
@@ -570,10 +570,10 @@ const gamingConsoles = [
   {
     id: "9",
     name: "Valve Index",
-    price: 999.99,
+    price: 35499,
     category: ["VR"],
     stock: 10,
-    image: "/img/consoles/valve-index.jpg",
+    image: "/img/console/valueindex.png",
     description:
       "High-fidelity VR with superior tracking, display, and comfort.",
     isComingSoon: false,
@@ -592,10 +592,10 @@ const gamingConsoles = [
   {
     id: "10",
     name: "PlayStation VR2",
-    price: 549.99,
+    price: 54999,
     category: ["VR"],
     stock: 10,
-    image: "/img/consoles/ps-vr2.jpg",
+    image: "/img/console/psvr2.webp",
     description:
       "Next-gen VR experience with stunning visuals and adaptive triggers.",
     isComingSoon: false,
