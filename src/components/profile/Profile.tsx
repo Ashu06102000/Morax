@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
   const { user } = useAuth0();
-
+  console.log(user, "user");
   return (
     <div id="profile-page">
       <div className="h-screen pt-28 max-w-screen-2xl  m-auto flex flex-col gap-24">

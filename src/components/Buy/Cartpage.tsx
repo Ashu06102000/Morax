@@ -61,7 +61,7 @@ const CartPage = () => {
                 ))}
               </div>
               <div className="mt-4 flex items-center gap-4">
-                <strong className="special-font">Total:</strong> ₹
+                <strong className="special-font uppercase">Total:</strong> ₹
                 {cart.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
                 <Button
                   title="Proceed to checkout"

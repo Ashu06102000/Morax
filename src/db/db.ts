@@ -2,7 +2,7 @@ import { openDB } from "idb";
 import { ConsoleData, GamingData } from "../interface/interface";
 
 const initDB = async () => {
-  return openDB("userDB", 5, {
+  return openDB("userDB", 1, {
     upgrade(db) {
       if (!db.objectStoreNames.contains("users")) {
         db.createObjectStore("users", {
@@ -26,7 +26,31 @@ const initDB = async () => {
 export const saveUserData = async (userId: string, data: any) => {
   const db = await initDB();
   const tx = db.transaction("users", "readwrite");
-  await tx.store.put({ userId, ...data });
+  const store = tx.store;
+
+  const existingData = await store.get(userId);
+  console.log(existingData, "exit");
+  if (existingData) {
+    const updatedData = {
+      ...existingData,
+      totalPurchase:
+        (parseFloat(existingData.totalPurchase) || 0) +
+        (parseFloat(data.totalPurchase) || 0),
+      purchaseHistory: [
+        ...(existingData.purchaseHistory || []),
+        ...(data.items || []),
+      ],
+    };
+    await store.put({ userId, ...updatedData });
+  } else {
+    const newData = {
+      userId,
+      totalPurchase: parseFloat(data.totalPurchase) || 0,
+      purchaseHistory: data.items || [],
+    };
+    await store.put(newData);
+  }
+
   await tx.done;
 };
 
