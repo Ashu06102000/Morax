@@ -17,6 +17,7 @@ import GameDetailpage from "./components/games/GameDetailpage";
 import ConsoleDetailPage from "./components/console/ConsoleDetailPage";
 import Buy from "./components/Buy/Buy";
 import CartPage from "./components/Buy/Cartpage";
+import Histoy from "./components/profile/Histoy";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -34,6 +35,7 @@ const App: React.FC = () => {
         <Route path="/cards" element={<GamingCards />} />
         <Route path="/nft" element={<Nft />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/history" element={<Histoy />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/games/:id" element={<GameDetailpage />} />

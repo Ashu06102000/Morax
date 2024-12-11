@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 import ToggleMenu from "./ToggleMenu";
 import { FaShoppingBag } from "react-icons/fa";
 
-const navItems = ["Nexus", "Vault", "Prologue"];
-
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
@@ -105,20 +103,6 @@ const NavBar = () => {
           </div>
 
           <div className="flex h-full items-center gap-10">
-            <div className="hidden md:block">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                  onClick={onClickedAudio}
-                  onMouseEnter={onHoverAudio}
-                  ref={navItemRef}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
             <Link className="relative" to={"/cart"}>
               {cart.length > 0 && (
                 <span className="absolute top-0 -right-1 text-black bg-red-500 rounded-full text-[6px] p-1"></span>

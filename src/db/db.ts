@@ -35,7 +35,7 @@ export const saveUserData = async (userId: string, data: any) => {
       ...existingData,
       totalPurchase:
         (parseFloat(existingData.totalPurchase) || 0) +
-        (parseFloat(data.totalPurchase) || 0),
+        (parseFloat(existingData.totalPurchase + data.totalPurchase) || 0),
       purchaseHistory: [
         ...(existingData.purchaseHistory || []),
         ...(data.items || []),
@@ -57,6 +57,7 @@ export const saveUserData = async (userId: string, data: any) => {
 export const fetchUserData = async (userId: string) => {
   const db = await initDB();
   const user = await db.get("users", userId);
+  console.log(user);
   return user;
 };
 

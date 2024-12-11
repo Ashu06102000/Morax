@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
-import { fetchUserData, saveUserData } from "../../db/db";
+import { saveUserData } from "../../db/db";
 
 const AuthButton = ({ containerStyle }: { containerStyle?: string }) => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();

@@ -1,8 +1,26 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { fetchUserData } from "../../db/db";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const { user } = useAuth0();
-  console.log(user, "user");
+  const [userData, setUserData] = useState<any>(null);
+
+  const fetchUser = async () => {
+    if (user) {
+      try {
+        const userData = await fetchUserData(user?.sub ?? "");
+        setUserData(userData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <div id="profile-page">
       <div className="h-screen pt-28 max-w-screen-2xl  m-auto flex flex-col gap-24">
@@ -27,9 +45,9 @@ const Profile = () => {
               <span className="text-base text-white font-general">
                 Total Purchase
               </span>
-              <h2 className="text-2xl  text-blue-50 font-medium font-general">
-                -
-              </h2>
+              <span className="text-2xl  text-blue-50 font-medium font-general">
+                ₹ {userData?.totalPurchase}
+              </span>
             </div>
           </div>
         </div>

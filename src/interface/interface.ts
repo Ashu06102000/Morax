@@ -94,3 +94,10 @@ export interface CartItem {
   name: string;
   price: number;
 }
+export interface PurchaseHistory {
+  id: string;
+  name: string;
+  price: number;
+  orderId: string;
+  date: string;
+}
