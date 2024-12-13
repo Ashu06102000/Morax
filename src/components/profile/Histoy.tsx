@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { fetchUserData } from "../../db/db";
 import { PurchaseHistory } from "../../interface/interface";
 import moment from "moment";
+import { constants } from "../../constants/constants";
 
 const Histoy = () => {
   const { user } = useAuth0();
@@ -25,12 +26,12 @@ const Histoy = () => {
   return (
     <div className="max-w-screen-2xl py-20 mx-auto">
       <h1 className="special-font hero-heading">
-        <b>History</b>
+        <b>{constants.HISTORY}</b>
       </h1>
       <div className="flex flex-col gap-20 mt-20 max-w-screen-sm">
         <div>
           <span className="text-sm special-font uppercase font-bold">
-            Total Spent
+            {constants.TOTOAL_SPENT}
           </span>
           <h4 className="text-sm">₹ {userData?.totalPurchase}</h4>
         </div>

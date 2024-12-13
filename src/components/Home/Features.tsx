@@ -1,6 +1,7 @@
 import { useState, useRef, ReactNode, ReactElement } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { constants } from "../../constants/constants";
 
 export const BentoTilt = ({
   children,
@@ -138,7 +139,7 @@ const Features = () => (
           src="videos/feature-1.mp4"
           title={
             <>
-              Gam<b>in</b>g
+              <b>{constants.GAMING}</b>
             </>
           }
           description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
@@ -153,7 +154,7 @@ const Features = () => (
             src="videos/feature-2.mp4"
             title={
               <>
-                con<b>sol</b>es
+                <b>{constants.CONSOLES}</b>
               </>
             }
             description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
@@ -167,7 +168,7 @@ const Features = () => (
             src="videos/feature-3.mp4"
             title={
               <>
-                c<b>a</b>rds
+                <b>{constants.CARDS}</b>
               </>
             }
             description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."

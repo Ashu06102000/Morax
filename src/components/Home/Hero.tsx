@@ -5,6 +5,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../genericComponents/Button";
 import VideoPreview from "../genericComponents/Videopreview";
+import { constants } from "../../constants/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,7 +171,7 @@ const Hero = () => {
         </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>A</b>MING
+          <b>{constants.GAMING}</b>
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
@@ -194,8 +195,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>A</b>MING
+      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black uppercase">
+        <b>{constants.GAMING}</b>
       </h1>
     </div>
   );

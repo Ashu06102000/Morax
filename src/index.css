@@ -352,3 +352,17 @@ body {
   font-family: "Zentry";
   font-feature-settings: "ss01" on;
 }
+
+.transition-opacity {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.transition-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.transition-visible {
+  opacity: 1;
+  visibility: visible;
+}
