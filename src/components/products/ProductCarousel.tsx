@@ -77,7 +77,9 @@ export default function ScrollableCarousel() {
             >
               {product.name}
               <span className="text-gray-600 text-xs">
-                {product.name === "Nft" ? "coming soon" : ""}
+                {product.name === "Nft" || product.name === "Cards"
+                  ? "coming soon"
+                  : ""}
               </span>
             </div>
           </Link>

@@ -128,9 +128,7 @@ const Features = () => (
           Into the Metagame Layer
         </p>
         <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
+          {constants.LOREM_DESCRIPTION}
         </p>
       </div>
 
@@ -142,7 +140,7 @@ const Features = () => (
               <b>{constants.GAMING}</b>
             </>
           }
-          description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+          description={constants.LOREM_SHORT}
           isComingSoon
           links="/products"
         />
@@ -157,7 +155,7 @@ const Features = () => (
                 <b>{constants.CONSOLES}</b>
               </>
             }
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            description={constants.LOREM_SHORT}
             isComingSoon
             links="/controller"
           />
@@ -171,9 +169,9 @@ const Features = () => (
                 <b>{constants.CARDS}</b>
               </>
             }
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            description={constants.LOREM_SHORT}
             isComingSoon
-            links="/cards"
+            links=""
           />
         </BentoTilt>
 
@@ -185,9 +183,9 @@ const Features = () => (
                 nf<b>t</b>
               </>
             }
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            description={constants.LOREM_SHORT}
             isComingSoon
-            links="/nfts"
+            links=""
           />
         </BentoTilt>
 
